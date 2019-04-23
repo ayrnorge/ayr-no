@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -5,6 +9,14 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-prismic`,
+      options: {
+        repositoryName: `ayr-web`,
+        accessToken: `MC5YTDcteHlvQUFENEFRVUY2.77-9Aj8A77-977-9KO-_ve-_ve-_vXTvv73vv71577-977-9cO-_vWceAwEw77-977-9EjVd77-977-977-9UQ`,
+        linkResolver: () => post => `/${post.uid}`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
