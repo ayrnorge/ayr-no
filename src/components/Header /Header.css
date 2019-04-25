@@ -1,0 +1,53 @@
+.header-main {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 2500px;
+    order: 0;
+    padding: 60px; }
+    @media screen and (max-width: 768px) {
+      .header-main {
+        padding: 1rem 1rem 3rem; } }
+  
+  .header-child-right {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto; }
+  
+  .ayr-logo {
+    flex: none;
+    margin-right: 80px;
+    max-height: 33px;
+    width: 60px; }
+    @media screen and (max-width: 768px) {
+      .ayr-logo {
+        margin-right: 2rem; } }
+  
+  .search {
+    background-image: url("/images/icon_search.svg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: auto 15px;
+    border: 0;
+    border-color: transparent;
+    box-shadow: none;
+    flex-shrink: 2;
+    font-size: 15px;
+    max-height: 1.5rem;
+    max-width: 12rem;
+    min-width: 6rem;
+    outline-style: none;
+    padding-left: 25px; }
+    @media screen and (max-width: 768px) {
+      .search {
+        max-width: 7rem;
+        min-width: 4rem;
+        padding-left: 20px;
+        transition: .3s; }
+        .search:focus {
+          background: none;
+          padding-left: 0; } }
+    .search::placeholder {
+      color: #bab7cf; }
+  

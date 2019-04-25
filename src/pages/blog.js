@@ -1,16 +1,57 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout"
+import Listing from "../components/Listing"
 import SEO from "../components/seo"
 
-const Blog = () => (
+
+/* const Blog = ({ data: { allPrismicPost } }) => (
   <Layout>
-    <SEO title="Blog" />
-    <h1>Blog</h1>
-    <p>Welcome to our blog</p>
-    <Link to="/">Go back to the homepage</Link>
+    { 
+      allPrismicPost.edges.map(blog => {
+     return(
+          <div>
+          {blog.node.data.title.text}
+          </div>
+         )
+        }
+      )
+    } 
   </Layout>
 )
 
+export default Blog */
+
+class Blog extends React.Component {
+  render() {
+    const { data: {allPrismicPost} } = this.props
+    return(
+      <Layout>
+      <Listing allPrismicPost={allPrismicPost.edges} />
+      </Layout>
+    )
+  }
+}
+
 export default Blog
+
+export const pageQuery = graphql`
+ query BlogQuery {
+  allPrismicPost(sort: { fields: [data___date], order: DESC }) {
+    edges{
+      node{
+        uid
+        data{
+          date
+          title{
+            text
+          }
+          description
+        }
+      }
+    }
+  }
+ }
+`
+
