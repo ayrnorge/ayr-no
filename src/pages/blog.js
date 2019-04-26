@@ -5,15 +5,16 @@ import Layout from "../components/layout"
 import Listing from "../components/Listing"
 import SEO from "../components/seo"
 
+// Option 1
 
-/* const Blog = ({ data: { allPrismicPost } }) => (
+/*  const Blog = ({ data: { allPrismicPost } }) => (
   <Layout>
     { 
       allPrismicPost.edges.map(blog => {
      return(
-          <div>
-          {blog.node.data.title.text}
-          </div>
+       <Link to={blog.node.uid}> 
+       <div>{blog.node.data.title.text}</div>
+       </Link>
          )
         }
       )
@@ -21,8 +22,10 @@ import SEO from "../components/seo"
   </Layout>
 )
 
-export default Blog */
+export default Blog  */
 
+//Option 2
+/* 
 class Blog extends React.Component {
   render() {
     const { data: {allPrismicPost} } = this.props
@@ -33,8 +36,35 @@ class Blog extends React.Component {
     )
   }
 }
+ */
+// export default Blog
 
-export default Blog
+// option 3 
+
+export default ({ data }) => {
+  return (
+    <Layout>
+      <div>
+        <h1>
+          Amazing Pandas Eating Things
+        </h1>
+        {data.allPrismicPost.edges.map(({ node }) => (
+          <div key={node.id}>
+            <Link to={node.uid} >
+              <h3> {node.data.title.text}{" "}
+                <span>
+                  — {node.data.date}
+                </span>
+              </h3>
+              <p>{node.description}</p>
+            </Link> 
+          </div>
+        ))}
+      </div>
+    </Layout>
+  )
+}
+
 
 export const pageQuery = graphql`
  query BlogQuery {
