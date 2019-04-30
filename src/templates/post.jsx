@@ -1,13 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Layout from "../components/layout"
+
 
 const Post = ({ data: { prismicPost } }) => {
   const { data } = prismicPost
   return (
-    <React.Fragment>
+      <Layout>
       <h1>{data.title.text}</h1>
       <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
-    </React.Fragment>
+      </Layout>
   )
 }
 

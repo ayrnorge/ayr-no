@@ -25,7 +25,7 @@ import SEO from "../components/seo"
 export default Blog  */
 
 //Option 2
-/* 
+
 class Blog extends React.Component {
   render() {
     const { data: {allPrismicPost} } = this.props
@@ -36,12 +36,12 @@ class Blog extends React.Component {
     )
   }
 }
- */
-// export default Blog
+ 
+ export default Blog
 
 // option 3 
 
-export default ({ data }) => {
+/* export default ({ data }) => {
   return (
     <Layout>
       <div>
@@ -63,7 +63,7 @@ export default ({ data }) => {
       </div>
     </Layout>
   )
-}
+} */
 
 
 export const pageQuery = graphql`

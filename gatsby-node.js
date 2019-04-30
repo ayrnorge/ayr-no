@@ -4,6 +4,7 @@ const _ = require('lodash')
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
 const wrapper = promise =>
 promise.then(result => {
+  console.log("test")
   if (result.errors) {
     throw result.errors
   }
@@ -33,6 +34,29 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPrismicService{
+        edges{
+          node{
+            uid
+            data{
+              title{
+                text 
+              }
+              content{
+                html
+              }
+              image{
+                url
+                alt
+                dimensions{
+                  width
+                  height
+                }
+              }
+            }
+          }
+        }
+      }
     }
     `
     )
@@ -52,4 +76,21 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  const serviceList = result.data.allPrismicService.edges
+  const serviceTemplate = require.resolve('./src/templates/service.jsx')
+
+  serviceList.forEach(edge => {
+  createPage({
+    path: `/${edge.node.uid}`,
+    component: serviceTemplate,
+    context: {
+      // Pass the unique ID (uid) through context so the template can filter by it
+      uid: edge.node.uid,
+    },
+  })
+})
+
+
 }
+
