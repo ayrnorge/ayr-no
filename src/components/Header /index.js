@@ -25,8 +25,6 @@ const Header = (props) => (
         <ListLink to="/om-oss/">Who are we?</ListLink>
         <ListLink to="/blog/">Here we blog</ListLink>
       </ul>
-   
-               
             </div>
         </header>
 )

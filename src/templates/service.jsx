@@ -10,17 +10,24 @@ import MediaQuery from 'react-responsive';
 const Container = styled.div`
 display: flex;
 flex-direction: row;
+@media screen and (max-width: 650px) {
+  flex-direction: column-reverse;
+  margin: 0 0 2rem;
+}
 ` 
 
 const Content = styled.div`
 width: 100%;
 height: 100%;
 margin: 0 0 2rem 10rem;
-padding: 0 2rem 2rem;
+padding: 0 4rem 2rem 2rem;
+@media screen and (max-width: 650px) {
+  margin: 0 1rem 2rem 1rem;
+}
 `
 
 const ImageContainer = styled.div`
-margin-left: 6rem;
+margin: 0 6rem 0 6rem;
 `
 
 

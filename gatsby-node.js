@@ -66,7 +66,6 @@ exports.createPages = async ({ graphql, actions }) => {
     const postTemplate = require.resolve('./src/templates/post.jsx')
 
   postsList.forEach(edge => {
-    console.log("aloha")
     createPage({
       path: `/${edge.node.uid}`,
       component: postTemplate,
