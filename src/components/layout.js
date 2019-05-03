@@ -4,6 +4,7 @@ import Header from "./Header /index"
 import "./layout.css"
 import styled from "@emotion/styled"
 
+
 const Container = styled.div`
 margin: 0 auto,
 max-Width: 960,

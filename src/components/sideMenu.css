@@ -1,0 +1,14 @@
+
+.sub-menu a {
+ display: none;   
+ background-color: aqua;
+}
+
+.active + .sub-menu a {
+display: block;    
+}
+
+.sub-menu .active {
+display: block;
+text-decoration: underline;
+}
