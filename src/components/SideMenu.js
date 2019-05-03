@@ -5,21 +5,24 @@ import { Link } from "gatsby"
 import './sideMenu.css'
 
 const Container = styled.div`
-background-color: white;
-height: 100%;
+background-color: #fff;
+max-width: 9.5rem;
+padding: .5rem .5rem 0 0;
+position: fixed;
 `
 
  const SideMenu = ({ data }) => {
-     console.log('this', data)
     return(
     <Container>
         <ul>{data.map((page) =>
         <li><Link to={`/${page.uid}`} key={page.title} activeClassName="active">
         {page.keyword} 
         </Link>
-        <div className="sub-menu">
-        {page.subpages.map(subpage => <Link activeClassName="active" to={`/${subpage.uid}`} key={subpage.title}>{subpage.title}</Link>)}
-        </div>
+        <ul className="sub-menu">
+        {page.subpages.map(subpage => 
+            <Link activeClassName="active" to={`/${subpage.uid}`} key={subpage.title}>{subpage.title}</Link>
+        )}
+        </ul>
         </li>
         )}</ul>
     </Container>

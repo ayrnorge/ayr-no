@@ -1,14 +1,46 @@
+.active {
+color: #0073e9;
+}
 
 .sub-menu a {
- display: none;   
- background-color: aqua;
+ display: none;
+ padding: .35rem 0;
 }
 
 .active + .sub-menu a {
-display: block;    
+display: block;
 }
 
 .sub-menu .active {
 display: block;
-text-decoration: underline;
+}
+
+.sub-menu .active + a{
+display: block;
+background-color: red;
+}
+
+a + .sub-menu .active {
+display: block;
+background-color: blueviolet;
+ }
+
+ul {
+list-style-type: none;
+}
+
+a {
+text-decoration: none;
+}
+
+ul.sub-menu {
+padding: .2rem 0;
+font-size: 20px; 
+}
+
+a {
+color: #d3d2d4;
+}
+a:hover {
+color: #0073e9;
 }
