@@ -22,8 +22,7 @@ const Header = (props) => (
          <input className="search header-child" aria-label="Search input" name="search" placeholder="Søk..." />
           <div className="header-child header-child-right">
           <ul style={{ listStyle: `none`, float: `right`, textDecoration: `none` }}>
-        <ListLink to="/om-oss/">Who are we?</ListLink>
-        <ListLink to="/blog/">Here we blog</ListLink>
+        <SocialIcons />
       </ul>
             </div>
         </header>
