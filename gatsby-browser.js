@@ -1,7 +1,7 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from "react"
 
-// You can delete this file if you're not using it
+import MenuProvider  from "./src/Context/Menu"
+
+export const wrapRootElement = ({ element }) => (
+  <MenuProvider>{element}</MenuProvider>
+)

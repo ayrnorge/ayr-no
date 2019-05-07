@@ -6,7 +6,22 @@ import SEO from "../components/seo"
 import Carousel from '../components/Carousel/index'
 import styled from '@emotion/styled'
 import BigImage from '../images/bg-circle-big.svg'
+import SmallImage from '../images/bg-circle-small.svg'
 import Footer from '../components/Footer'
+import PopUpMenu from '../components/PopUpMenu/index'
+
+const Background = styled.div`
+display: flex;
+min-height: 100vh;
+background-image: url(${BigImage}), url(${SmallImage});
+background-position: 780px -660px, -200px 550px;
+background-repeat: no-repeat, no-repeat;
+background-size: 1655px auto, 600px auto;
+@media screen and (max-width: 768px) {
+  background-position: right -90px top -130px, -200px 550px;
+  background-size: 200px auto, 600px auto;
+}
+`
 
 const HomeContainer = styled.div`
 margin-top: 200px;
@@ -18,20 +33,25 @@ padding: 0 1.5rem; }
     padding: 0 .1rem; }
 `
 
-
-
 const IndexPage = ({ data: { prismicHomepage } }) => (
-  <>
-  <Header />
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+  <Background>
+    <div>
+      <PopUpMenu />
+    </div>
+    <div>
+    <Header />
     <HomeContainer>
-      <Carousel content={prismicHomepage.data.slider_content}/>
-    </HomeContainer>
+    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <Carousel content={prismicHomepage.data.slider_content}/>
     <Footer>
-      <Link to="/">Aloha</Link>
-      <Link to="/blog/">test</Link>
+    <Link style={{marginRight: '2rem'}} to="/om-oss/">Hvem er vi?</Link>
+    <Link style={{marginRight: '2rem'}} to="/">Hva kan du lære?</Link>
+    <Link to="/blog/">Her blogger vi</Link>
     </Footer>
-    </>
+    </HomeContainer>
+    </div>
+    </Background>
+    
 )
 
 export default IndexPage

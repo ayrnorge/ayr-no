@@ -1,0 +1,20 @@
+.anchored-icon-menu img {
+cursor: pointer;
+margin: 0 115px 10px 0;
+padding: 1rem;
+ width: 25px; }
+
+ .page-icon-menu {
+ display: inline-block;
+ bottom: 2.5rem;
+cursor: pointer;
+left: 2.5rem;
+            margin: 0;
+            position: fixed;
+            width: 25px;
+            z-index: 2;
+          }
+
+          .test {
+            background-color: red;
+          }
