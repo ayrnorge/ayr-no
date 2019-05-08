@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import googlecloudBadge from '../images/google_cloud_partner_badge.svg'
 import AnchoredMenuButton from '../components/AnchoredMenuButton/index'
+import { Link } from 'gatsby'
 
 const Container = styled.div`
   display: flex;
@@ -25,15 +26,19 @@ width: 120px;
 }
 `
 
+const Spacer = styled.div`
+width: 8rem;
+`
 
-
-const Footer = ({ children }) => {
+const Footer = () => {
     return (
-      <Container>
-       <AnchoredMenuButton />
-        <div className="nav-link">
-        {children}
-        </div>
+ <Container>
+  <AnchoredMenuButton />
+  <Spacer />
+<Link style={{marginRight: '2rem'}} to="/tjenester/">Hva kan vi?</Link>
+<Link style={{marginRight: '2rem'}} to="/om-oss/">Hvem er vi?</Link>
+ <Link style={{marginRight: '2rem'}} to="/gsuite-kurs">Hva kan du lære?</Link>
+ <Link to="/blog/">Her blogger vi</Link>
         <Img className="footer-child badge-google" src={googlecloudBadge} alt="Google Cloud partner badge" />
       </Container>
     )

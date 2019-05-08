@@ -27,8 +27,10 @@
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
+    "react-hubspot-form": "^1.3.7",
     "react-responsive": "^6.1.2",
     "react-router-dom": "^5.0.0",
+    "react-spinners": "^0.5.4",
     "reactstrap": "^8.0.0",
     "yarn": "^1.15.2"
   },

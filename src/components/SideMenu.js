@@ -1,21 +1,33 @@
-import React, { useState, useEffect } from "react"
+import React, { useContext }from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from '@emotion/styled'
 import { Link } from "gatsby"
 import './sideMenu.css'
+import AnchoredMenuButton from '../components/AnchoredMenuButton/index'
+import SideDrawer from '../components/SideDrawer/index'
+import { MenuContext } from '../Context/Menu'
+import Backdrop from '../components/Backdrop/index'
+import ButtonLink from '../components/ButtonLink/index'
 
 const Container = styled.div`
+hieght: 100vh;
 background-color: #fff;
-max-width: 9.5rem;
-padding: .5rem .5rem 0 0;
+max-width: 13rem;
+padding: 1rem;
+position: fixed;
+`
+const IconContainer = styled.div`
+bottom: 1.5rem;
+left: 3.5rem;
 position: fixed;
 `
 
  const SideMenu = ({ data }) => {
+    const { isOpen, closeMenu } = useContext(MenuContext)
     return(
     <Container>
         <ul>{data.map((page) =>
-        <li><Link to={`/${page.uid}`} key={page.title} activeClassName="active">
+        <li key={page.title} ><Link to={`/${page.uid}`} activeClassName="active">
         {page.keyword} 
         </Link>
         <ul className="sub-menu">
@@ -25,6 +37,12 @@ position: fixed;
         </ul>
         </li>
         )}</ul>
+        <ButtonLink text={"Ta Kontakt"} url="tel:+4745969999"/>
+         <SideDrawer show={isOpen} />
+         {isOpen ? <Backdrop click={closeMenu} /> : null}
+          <IconContainer>
+          <AnchoredMenuButton />
+          </IconContainer>
     </Container>
 )}
  

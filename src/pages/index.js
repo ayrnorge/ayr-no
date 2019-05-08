@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useContext } from "react"
 import { graphql, Link } from "gatsby"
-
+import { MenuContext } from '../Context/Menu'
 import Header from "../components/Header /index"
 import SEO from "../components/seo"
 import Carousel from '../components/Carousel/index'
@@ -8,10 +8,12 @@ import styled from '@emotion/styled'
 import BigImage from '../images/bg-circle-big.svg'
 import SmallImage from '../images/bg-circle-small.svg'
 import Footer from '../components/Footer'
-import PopUpMenu from '../components/PopUpMenu/index'
+import SideDrawer from '../components/SideDrawer/index'
+import Backdrop from '../components/Backdrop/index'
+import MediaQuery from 'react-responsive';
+
 
 const Background = styled.div`
-display: flex;
 min-height: 100vh;
 background-image: url(${BigImage}), url(${SmallImage});
 background-position: 780px -660px, -200px 550px;
@@ -33,26 +35,24 @@ padding: 0 1.5rem; }
     padding: 0 .1rem; }
 `
 
-const IndexPage = ({ data: { prismicHomepage } }) => (
+const IndexPage = ({ data: { prismicHomepage } }) => {
+  const { isOpen, closeMenu } = useContext(MenuContext)
+
+  return(
   <Background>
-    <div>
-      <PopUpMenu />
-    </div>
-    <div>
     <Header />
+    <SideDrawer show={isOpen} />
+    {isOpen ? <Backdrop click={closeMenu} /> : null} 
     <HomeContainer>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <Carousel content={prismicHomepage.data.slider_content}/>
-    <Footer>
-    <Link style={{marginRight: '2rem'}} to="/om-oss/">Hvem er vi?</Link>
-    <Link style={{marginRight: '2rem'}} to="/">Hva kan du lære?</Link>
-    <Link to="/blog/">Her blogger vi</Link>
-    </Footer>
     </HomeContainer>
-    </div>
+    <MediaQuery minWidth={650}>
+      <Footer />
+    </MediaQuery>
     </Background>
-    
-)
+  )
+}
 
 export default IndexPage
 

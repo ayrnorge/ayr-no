@@ -27,33 +27,3 @@
     margin-right: 2rem;
   }
 }
-
-.search {
-  background-image: url('/images/icon_search.svg');
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: auto 15px;
-  border: 0;
-  border-color: transparent;
-  box-shadow: none;
-  flex-shrink: 2;
-  font-size: 15px;
-  max-height: 1.5rem;
-  max-width: 12rem;
-  min-width: 6rem;
-  outline-style: none;
-  padding-left: 25px;
-  @media screen and (max-width: 768px) {
-    max-width: 7rem;
-    min-width: 4rem;
-    padding-left: 20px;
-    transition: .3s;
-    &:focus {
-      background: none;
-      padding-left: 0;
-    }
-  }
-  &::placeholder {
-    color: $placeholder-color;
-  }
-}

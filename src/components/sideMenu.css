@@ -17,16 +17,17 @@ display: block;
 
 .sub-menu .active + a{
 display: block;
-background-color: red;
+
 }
 
 a + .sub-menu .active {
 display: block;
-background-color: blueviolet;
+
  }
 
 ul {
 list-style-type: none;
+padding: 0;
 }
 
 a {

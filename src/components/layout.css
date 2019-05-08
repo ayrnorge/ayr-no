@@ -2,7 +2,7 @@
 
 html {
   font-family: 'Source Sans Pro', sans-serif;
-  min-height: 100vh;
+  height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -11,4 +11,9 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   margin: 0;
+  font-size: calc(13px + (18 - 13) * ((100vw - 300px) / (1600 - 300)));
+}
+
+p {
+  line-height: 1.7rem;
 }
