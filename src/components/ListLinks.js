@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {Link} from 'gatsby'
+import {MenuContext}from '../Context/Menu'
+import { navigate } from "gatsby"
 
 
+const ListLinks = () => {
+  const { closeMenu } = useContext(MenuContext)
 
-const ListLinks = () => (
+  return(
 <ul style={{ listStyle: 'none', marginLeft: '2rem'}}>
   <li style={{ paddingBottom: '10px' }}>
-   <Link to="/tjenester">Hva kan vi?</Link>
+   <div onClick={()=> { closeMenu(); navigate("/tjenester") }}>Hva kan vi?</div>
   </li>
   <li style={{ paddingBottom: '10px' }}>
-   <Link to="/om-oss">Hvem er vi</Link>
+   <Link to="/om-oss" onClick={closeMenu}>Hvem er vi</Link>
   </li>
   <li style={{ paddingBottom: '10px' }}>
    <Link to="/gsuite-kurs">Hva kan du lære?</Link>
@@ -18,6 +22,7 @@ const ListLinks = () => (
    <Link to="/blog">Her blogger vi</Link>
   </li>
 </ul>
-)
+  )
+}
 
 export default ListLinks;
