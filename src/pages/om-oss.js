@@ -9,6 +9,7 @@ import { MenuContext } from '../Context/Menu'
 import SideDrawer from '../components/SideDrawer/index'
 import Backdrop from '../components/Backdrop/index'
 import MediaQuery from 'react-responsive';
+import IntercomConfigured from '../components/Intercom/index'
 
 
 const IconContainer = styled.aside`
@@ -35,6 +36,7 @@ const aboutUs = ({ data: { prismicWhoAreWe } }) => {
     <AnchoredMenuButton />
     </IconContainer>
     </MediaQuery>
+    <IntercomConfigured />
   </Layout>
   )
 }

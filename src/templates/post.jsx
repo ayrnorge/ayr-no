@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-
+import IntercomConfigured from '../components/Intercom/index'
 
 const Post = ({ data: { prismicPost } }) => {
   const { data } = prismicPost
@@ -9,6 +9,7 @@ const Post = ({ data: { prismicPost } }) => {
       <Layout>
       <h1>{data.title.text}</h1>
       <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
+      <IntercomConfigured />
       </Layout>
   )
 }

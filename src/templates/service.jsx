@@ -6,6 +6,7 @@ import styled from '@emotion/styled'
 import SideMenu from '../components/SideMenu'
 import MediaQuery from 'react-responsive';
 import HubspotFormConfigured from '../components/HubspotFormConfigured/index.js'
+import IntercomConfigured from '../components/Intercom/index'
 
 const Container = styled.div`
 display: flex;
@@ -53,6 +54,7 @@ const Service = ({ data: { prismicService } }) => {
       />
        </ImageContainer>
       </MediaQuery>
+      <IntercomConfigured />
       </Container>
       </>
   )

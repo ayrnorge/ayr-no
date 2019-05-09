@@ -27,12 +27,10 @@ background-size: 1655px auto, 600px auto;
 
 const HomeContainer = styled.div`
 margin-top: 200px;
-padding: 0 1.5rem; }
+padding: 0 1.5rem; 
 @media screen and (max-width: 768px) {
-  .home-main-container {
-    margin-top: 3rem;
-    display: block;
-    padding: 0 .1rem; }
+margin-top: 2.5rem;
+  }
 `
 
 const IndexPage = ({ data: { prismicHomepage } }) => {
@@ -45,7 +43,7 @@ const IndexPage = ({ data: { prismicHomepage } }) => {
     {isOpen ? <Backdrop click={closeMenu} /> : null} 
     <HomeContainer>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <Carousel content={prismicHomepage.data.slider_content}/>
+    <Carousel content={prismicHomepage.data.slider_content} />
     </HomeContainer>
     <MediaQuery minWidth={650}>
       <Footer />
@@ -63,25 +61,13 @@ query Homepage {
   data{
     slider_content{
       heading_description{
-        text
         html
       }
+      slug {
+          uid
+        }
     }
   }
 }
 }
 `
-
-/*     
-<div style={{ display: 'none' }}>{prismicHomepage.data.slider_content.map(c=>(
-      <div
-      dangerouslySetInnerHTML={{ __html: c.heading_description.html }}
-    />
-    ))}</div>
-} 
-
-
- 
- 
-
-*/

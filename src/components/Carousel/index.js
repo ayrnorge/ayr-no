@@ -15,7 +15,7 @@ export default class Carousel extends React.Component {
             intervalFunction: setInterval(this.cycle, this.props.delay || 5000),
             mouseInside: false,
             slides: this.props.content.map(
-                slide => <CarouselItem key={slide.headline} data={slide.heading_description.html} />
+                slide => <CarouselItem key={slide.headline} data={slide.heading_description.html} uid={slide.slug.uid} />
             ),
         }
     }
