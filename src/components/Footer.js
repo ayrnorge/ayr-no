@@ -6,7 +6,6 @@ import { Link } from 'gatsby'
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
   direction: row;
   margin-top: 12rem;
   max-width: 2500px;
@@ -32,14 +31,13 @@ width: 8rem;
 
 const Footer = () => {
     return (
- <Container>
+       <Container>
   <AnchoredMenuButton />
   <Spacer />
-<Link style={{marginRight: '2rem'}} to="/tjenester/">Hva kan vi?</Link>
-<Link style={{marginRight: '2rem'}} to="/om-oss/">Hvem er vi?</Link>
- <Link style={{marginRight: '2rem'}} to="/gsuite-kurs">Hva kan du lære?</Link>
- <Link to="/blog/">Her blogger vi</Link>
-        <Img className="footer-child badge-google" src={googlecloudBadge} alt="Google Cloud partner badge" />
+  <Link style={{marginRight: '2rem'}} to="/tjenester/">Hva kan vi?</Link>
+  <Link style={{marginRight: '2rem'}} to="/om-oss/">Hvem er vi?</Link>
+  <Link style={{marginRight: '2rem'}} to="/gsuite-kurs">Hva kan du lære?</Link>
+  <Link to="/blog/">Her blogger vi</Link>
       </Container>
     )
 }

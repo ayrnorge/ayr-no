@@ -9,11 +9,32 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display';
 }
 
+h1 {
+  margin: 10px 0px;
+  font-size: calc(20px + (60 - 20) * ((100vw - 300px) / (1600 - 300)));
+}
+
 body {
   margin: 0;
-  font-size: calc(13px + (18 - 13) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(12px + (18 - 12) * ((100vw - 300px) / (1600 - 300)));
 }
 
 p {
+  font-family: "Source Sans Pro", sans-serif;
   line-height: 1.7rem;
+  color: #76767a;
+  font-size: 1rem
+}
+
+span {
+  color: #76767a;
+  font-size: 0.8rem;
+}
+
+li {
+  color: #76767a;
+}
+
+a{
+  color: #d3d2d4;
 }

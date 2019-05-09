@@ -10,19 +10,25 @@ const ListLinks = () => {
   return(
 <ul style={{ listStyle: 'none', marginLeft: '2rem'}}>
   <li style={{ paddingBottom: '10px' }}>
-   <div onClick={()=> { closeMenu(); navigate("/tjenester") }}>Hva kan vi?</div>
+   <div to="/tjenester" onClick={closeMenu}>Hva kan vi?</div>
   </li>
   <li style={{ paddingBottom: '10px' }}>
    <Link to="/om-oss" onClick={closeMenu}>Hvem er vi</Link>
   </li>
   <li style={{ paddingBottom: '10px' }}>
-   <Link to="/gsuite-kurs">Hva kan du lære?</Link>
+   <Link to="/gsuite-kurs" onClick={closeMenu}>Hva kan du lære?</Link>
   </li>
   <li>
-   <Link to="/blog">Her blogger vi</Link>
+   <Link to="/blog" onClick={closeMenu}>Her blogger vi</Link>
   </li>
 </ul>
   )
 }
 
 export default ListLinks;
+
+
+/* 
+   <div onClick={()=> { closeMenu(); navigate("/tjenester") }}>Hva kan vi?</div>
+
+*/

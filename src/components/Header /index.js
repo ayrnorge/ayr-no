@@ -3,19 +3,21 @@ import PropTypes from "prop-types"
 import React from "react"
 import AnchoredMenuButton from '../AnchoredMenuButton/index'
 import MediaQuery from 'react-responsive';
-import ayrLogo from './ayr_logo.svg';
+import ayrLogo from '../../images/ayr_logo.svg';
 import './Header.css';
 import SocialIcons from './SocialIcons';
+import googlecloudBadge from '../../images/google_cloud_partner_badge.svg'
 
-const Header = (props) => (
+const Header = () => (
   <header className="header-main">
      <Link className="ayr-logo" to="/" >
         <img className="header-child" src={ayrLogo} alt="AYR logo" />
         </Link>
           <div className="header-child header-child-right">
+          <img className="google-cloud-badge" src={googlecloudBadge} alt="Google Cloud partner badge"/>
           <ul style={{ listStyle: `none`, float: `right`, textDecoration: `none` }}>
           <MediaQuery minWidth={651}>
-         <SocialIcons />
+          <SocialIcons />
           </MediaQuery>
           <MediaQuery maxWidth={650}>
          <AnchoredMenuButton />

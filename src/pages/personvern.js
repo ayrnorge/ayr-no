@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Header from '../components/Header /index'
 import Layout from '../components/layout'
 import IntercomConfigured from '../components/Intercom/index'
 import moment from 'moment'

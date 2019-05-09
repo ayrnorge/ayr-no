@@ -10,7 +10,8 @@ import SmallImage from '../images/bg-circle-small.svg'
 import Footer from '../components/Footer'
 import SideDrawer from '../components/SideDrawer/index'
 import Backdrop from '../components/Backdrop/index'
-import MediaQuery from 'react-responsive';
+import MediaQuery from 'react-responsive'
+import IntercomConfigured from '../components/Intercom/index'
 
 
 const Background = styled.div`
@@ -48,6 +49,7 @@ const IndexPage = ({ data: { prismicHomepage } }) => {
     <MediaQuery minWidth={650}>
       <Footer />
     </MediaQuery>
+    <IntercomConfigured />
     </Background>
   )
 }

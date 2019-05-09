@@ -24,10 +24,19 @@ position: fixed;
 
  const SideMenu = ({ data }) => {
     const { isOpen, closeMenu } = useContext(MenuContext)
+
+    data.sort((a ,b) => {
+        return a.position - b.position
+    })
+        // function to sort subpages 
+     data.forEach((mainPages) => {
+        mainPages.subpages.sort((a, b) => a.position - b.position )
+    }) 
+ 
     return(
     <Container>
-        <ul>{data.map((page) =>
-        <li key={page.title} ><Link to={`/${page.uid}`} activeClassName="active">
+        <ul style={{ padding: '0', listStyleType: 'none' }}>{data.map((page) =>
+        <li key={page.title} style={{ paddingBottom: '0.9rem', fontSize: '1.1rem', color: '#d3d2d4' }}><Link to={`/${page.uid}`} activeClassName="active">
         {page.keyword} 
         </Link>
         <ul className="sub-menu">
@@ -57,6 +66,7 @@ export default () => (
         uid
         tags
         data{
+            position
             keyword
             title{
             text
@@ -75,10 +85,10 @@ export default () => (
         const cond = edge.node.tags.filter(tag => !tag.includes("Main Service"))
         data.allPrismicService.edges.forEach(sub => {
         if (!sub.node.tags.includes("Main Service") && sub.node.tags.includes(cond[0]) ) {
-           subpages.push( { title: sub.node.data.title.text, uid: sub.node.uid });
+           subpages.push( { title: sub.node.data.title.text, uid: sub.node.uid, position: sub.node.data.position });
                     }
                 })
-                mainPages.push({ keyword: edge.node.data.keyword, subpages, uid: edge.node.uid })
+                mainPages.push({ keyword: edge.node.data.keyword, subpages, uid: edge.node.uid, position: edge.node.data.position })
             }
         })
         return (
