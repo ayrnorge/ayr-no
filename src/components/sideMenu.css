@@ -1,10 +1,7 @@
-.active {
-color: #0073e9;
-}
 
 .sub-menu a {
  display: none;
- padding: .35rem 0;
+ padding: .25rem 0;
 }
 
 .active + .sub-menu a {
@@ -24,15 +21,6 @@ a + .sub-menu .active {
 display: block;
  }
 
-a {
-text-decoration: none;
-}
-
-ul.sub-menu {
-padding: .2rem 0;
-font-size: 20px; 
-}
-
-a:hover {
-color: #0073e9;
-}
+ul .sub-menu {
+padding: 0 0 0 0.2rem ;
+} 

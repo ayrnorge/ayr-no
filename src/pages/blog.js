@@ -1,20 +1,50 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
+import React, { useContext }  from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Listing from "../components/Listing"
 import IntercomConfigured from '../components/Intercom/index'
 import SEO from "../components/seo"
+import { MenuContext } from '../Context/Menu'
+import AnchoredMenuButton from '../components/AnchoredMenuButton'
+import SideDrawer from '../components/SideDrawer/index'
+import Backdrop from '../components/Backdrop/index'
+import styled from '@emotion/styled'
 
-class Blog extends React.Component {
-  render() {
-    const { data: {allPrismicPost} } = this.props
+
+const Container = styled.div`
+hieght: 100vh;
+max-width: 13rem;
+padding: 1rem;
+position: fixed;
+`
+
+const MenuContainer = styled.div`
+  bottom: 1.5rem;
+  left: 2.5rem;
+  position: fixed;
+
+`
+
+
+const Blog = ( { data: {allPrismicPost} }) => {
+    const { isOpen, closeMenu } = useContext(MenuContext)
     return(
       <Layout>
-      <Listing allPrismicPost={allPrismicPost.edges} />
+      <div style={{display: 'flex', direction: 'row'}}>
+        <div>
+          <Listing allPrismicPost={allPrismicPost.edges} />
+        </div>
       <IntercomConfigured />
+      <SideDrawer show={isOpen} />
+      {isOpen ? <Backdrop click={closeMenu} /> : null}
+      </div>
+      <Container>
+      </Container>
+      <MenuContainer>
+      <AnchoredMenuButton />
+      </MenuContainer>
       </Layout>
     )
-  }
 }
  
  export default Blog

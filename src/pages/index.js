@@ -15,6 +15,9 @@ import IntercomConfigured from '../components/Intercom/index'
 
 
 const Background = styled.div`
+display: flex;
+flex-direction: column;
+justify-content; space-between;
 min-height: 100vh;
 background-image: url(${BigImage}), url(${SmallImage});
 background-position: 780px -660px, -200px 550px;
@@ -27,12 +30,19 @@ background-size: 1655px auto, 600px auto;
 `
 
 const HomeContainer = styled.div`
-margin-top: 200px;
+margin-top: 160px;
 padding: 0 1.5rem; 
 @media screen and (max-width: 768px) {
 margin-top: 2.5rem;
   }
 `
+
+const FooterContainer = styled.div`
+  position: fixed;
+  width: 100%;
+  bottom: 60px;
+`
+
 
 const IndexPage = ({ data: { prismicHomepage } }) => {
   const { isOpen, closeMenu } = useContext(MenuContext)
@@ -47,7 +57,9 @@ const IndexPage = ({ data: { prismicHomepage } }) => {
     <Carousel content={prismicHomepage.data.slider_content} />
     </HomeContainer>
     <MediaQuery minWidth={650}>
-      <Footer />
+        <FooterContainer>
+          <Footer />
+        </FooterContainer>
     </MediaQuery>
     <IntercomConfigured />
     </Background>

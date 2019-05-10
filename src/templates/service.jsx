@@ -30,7 +30,6 @@ const ImageContainer = styled.div`
 margin: 0 6rem 0 6rem;
 `
 
-
 const Service = ({ data: { prismicService } }) => {
   const { data } = prismicService
   return (
