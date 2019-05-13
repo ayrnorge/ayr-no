@@ -35,7 +35,7 @@ position: fixed;
     return(
     <Container>
         <ul style={{ padding: '0', listStyleType: 'none' }}>{data.map((page) =>
-        <li key={page.title} style={{ paddingBottom: '0.8rem', fontSize: '1.1rem', color: '#d3d2d4' }}><Link to={`/${page.uid}`} activeClassName="active">
+        <li key={page.title} style={{ paddingBottom: '0.5rem', fontSize: '.8rem', color: '#d3d2d4' }}><Link to={`/${page.uid}`} activeClassName="active">
         {page.keyword} 
         </Link>
         <ul className="sub-menu">

@@ -60,7 +60,7 @@
     color: #7671a0;
     font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
     margin: 3rem 0 0;
-    max-width: 60rem; }
+    max-width: 40rem; }
     @media screen and (max-width: 768px) {
       .carousel-item p {
         margin: 1.3rem 0 0;

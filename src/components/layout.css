@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro');
 
+* {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 html {
   font-family: 'Source Sans Pro', sans-serif;
   height: 100%;
@@ -14,23 +19,27 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   /* padding: 0rem 0 1rem; */
   /* font-size: calc(30px + (60 - 30) * ((100vw - 300px) / (1600 - 300))); */
-  font-size: 3rem;
+  font-size: calc(24px + (63 - 24) * ((100vw - 300px) / (1600 - 300)));
   line-height: 3.5rem;
-
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
  h2 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
  
 body {
   margin: 0;
-  line-height: 1.7rem;
+  line-height: 1.8rem;
 }
 
 p {
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro';
+  line-height: 1.5rem;
+  word-wrap: break-word;
   color: #76767a;
+  font-size: 0.9rem;
 }
 
 span {
