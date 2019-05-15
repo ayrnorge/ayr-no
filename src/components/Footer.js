@@ -27,7 +27,7 @@ const Footer = () => {
   <div className="footer-link">
   <Link style={{marginRight: '2rem'}} to="/tjenester/">Hva kan vi?</Link>
   <Link style={{marginRight: '2rem'}} to="/om-oss/">Hvem er vi?</Link>
-  <Link style={{marginRight: '2rem'}} to="/gsuite-kurs">Hva kan du lære?</Link>
+  <Link style={{marginRight: '2rem'}} to="/tjenester-gsuite-kurs">Hva kan du lære?</Link>
   <Link to="/blog/">Her blogger vi</Link>
   </div>
       </Container>

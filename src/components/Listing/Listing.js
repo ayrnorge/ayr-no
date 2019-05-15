@@ -3,12 +3,17 @@ import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import ListItem from './ListItem'
 
-const List = styled.ul`
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  list-style-type: none;
-  margin-left: 0;
+const List = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+  } 
 `
+
 
 export default class Listing extends Component {
   render() {

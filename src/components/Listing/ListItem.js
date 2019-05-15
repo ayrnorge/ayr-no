@@ -2,35 +2,43 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import moment from 'moment'
 
-const Item = styled.li`
+
+const Img = styled.img`
+width: 274px;
+height: 172px;
+`
+
+const Item = styled.div`
+  width: 290px;
+  padding: 6px;
   margin-bottom: 1.45rem;
 `
 const Headline = styled.p`
-  font-family: 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial',
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  margin-bottom: 0;
+  font-size: 14px;
+  margin-bottom: 2px;
   a {
     font-style: normal;
-    font-weight: normal;
+    font-weight: normal
   }
 `
 
 const StyledLink = styled(Link)`
-  font-size: 2.369rem;
-  font-style: normal;
+  word-wrap: break-word;
+  font-weight: semi-bold;
   `
 
 export default class ListItem extends Component {
   render() {
     const { node } = this.props
     return (
-      <Item>
-        <Headline>
-          {node.data.date}
-        </Headline>
-        <StyledLink to={node.uid}>{node.data.title.text}</StyledLink>
-        <div>{node.data.description}</div>
+     <Item>
+       <Img src={node.data.post_image.small.url} />
+      <Headline>
+      {moment(`${node.data.date}`).format('DD MMMM YY')} - skrevet av {node.data.author}
+      </Headline>
+      <StyledLink to={node.uid}>{node.data.title.text}</StyledLink>
       </Item>
     )
   }

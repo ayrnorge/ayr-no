@@ -7,7 +7,7 @@ const ListLinks = () => {
   const { closeMenu } = useContext(MenuContext)
 
   return(
-<ul style={{ listStyle: 'none'}}>
+<ul style={{ listStyle: 'none', margin: 'auto'}}>
   <li style={{ paddingBottom: '1rem'}}>
    <Link to="/tjenester" onClick={closeMenu}>Hva kan vi?</Link>
   </li>
@@ -15,7 +15,7 @@ const ListLinks = () => {
    <Link to="/om-oss" onClick={closeMenu}>Hvem er vi</Link>
   </li>
   <li style={{ paddingBottom: '1rem' }}>
-   <Link to="/gsuite-kurs" onClick={closeMenu}>Hva kan du lære?</Link>
+   <Link to="/tjenester-gsuite-kurs" onClick={closeMenu}>Hva kan du lære?</Link>
   </li>
   <li>
    <Link to="/blog" onClick={closeMenu}>Her blogger vi</Link>

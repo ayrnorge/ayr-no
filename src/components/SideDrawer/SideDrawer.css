@@ -34,9 +34,9 @@
   }
   
   .side-drawer a {
-    text-decoration: none!;
+    text-decoration: none;
     color: #212026;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   
   .side-drawer a:hover,
@@ -46,7 +46,6 @@
   background-size: 20px 2px;
   background-position: bottom;
   background-origin: padding-box;
-  padding: 0.5rem;
   }
 
   

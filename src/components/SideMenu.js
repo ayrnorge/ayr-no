@@ -8,6 +8,7 @@ import SideDrawer from '../components/SideDrawer/index'
 import { MenuContext } from '../Context/Menu'
 import Backdrop from '../components/Backdrop/index'
 import ButtonLink from '../components/ButtonLink/index'
+import Dropdown from '../components/Dropdown/index'
 
 const Container = styled.div`
 background-color: #fff;
@@ -21,7 +22,7 @@ left: 3.5rem;
 position: fixed;
 `
 
- const SideMenu = ({ data }) => {
+const SideMenu = ({ data }) => {
     const { isOpen, closeMenu } = useContext(MenuContext)
 
     data.sort((a ,b) => {
@@ -35,7 +36,7 @@ position: fixed;
     return(
     <Container>
         <ul style={{ padding: '0', listStyleType: 'none' }}>{data.map((page) =>
-        <li key={page.title} style={{ paddingBottom: '0.5rem', fontSize: '.8rem', color: '#d3d2d4' }}><Link to={`/${page.uid}`} activeClassName="active">
+        <li key={page.title} style={{ paddingBottom: '0.7rem', fontSize: '.8rem', color: '#d3d2d4' }}><Link to={`/${page.uid}`} activeClassName="active">
         {page.keyword} 
         </Link>
         <ul className="sub-menu">
@@ -53,6 +54,7 @@ position: fixed;
           </IconContainer>
     </Container>
 )}
+ 
  
 
 export default () => (
@@ -96,3 +98,69 @@ export default () => (
     />
     )
     
+
+
+
+    /* 
+    Previous code
+
+    const SideMenu = ({ data }) => {
+    const { isOpen, closeMenu } = useContext(MenuContext)
+
+    data.sort((a ,b) => {
+        return a.position - b.position
+    })
+        // function to sort subpages 
+     data.forEach((mainPages) => {
+        mainPages.subpages.sort((a, b) => a.position - b.position )
+    }) 
+ 
+    return(
+    <Container>
+        <ul style={{ padding: '0', listStyleType: 'none' }}>{data.map((page) =>
+        <li key={page.title} style={{ paddingBottom: '0.7rem', fontSize: '.8rem', color: '#d3d2d4' }}><Link to={`/${page.uid}`} activeClassName="active">
+        {page.keyword} 
+        </Link>
+        <ul className="sub-menu">
+        {page.subpages.map(subpage => 
+            <Link activeClassName="active" to={`/${subpage.uid}`} key={subpage.title}>{subpage.title}</Link>
+        )}
+        </ul>
+        </li>
+        )}</ul>
+        <ButtonLink text={"Ta Kontakt"} url="tel:+4745969999"/>
+         <SideDrawer show={isOpen} />
+         {isOpen ? <Backdrop click={closeMenu} /> : null}
+          <IconContainer>
+          <AnchoredMenuButton />
+          </IconContainer>
+    </Container>
+)}
+ 
+
+
+
+const SideMenu = ({ data }) => {
+    const { isOpen, closeMenu } = useContext(MenuContext)
+    
+    data.sort((a ,b) => {
+        return a.position - b.position
+    })
+        // function to sort subpages 
+     data.forEach((mainPages) => {
+        mainPages.subpages.sort((a, b) => a.position - b.position )
+    }) 
+ 
+    return(
+    <div>
+        <Dropdown data={data} />
+        <ButtonLink text={"Ta Kontakt"} url="tel:+4745969999"/>
+         <SideDrawer show={isOpen} />
+         {isOpen ? <Backdrop click={closeMenu} /> : null}
+          <IconContainer>
+          <AnchoredMenuButton />
+          </IconContainer>
+    </div>
+)}
+
+    */

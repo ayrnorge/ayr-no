@@ -1,6 +1,5 @@
 import React, { useContext }  from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import { graphql, Link } from "gatsby"
 import Listing from "../components/Listing"
 import IntercomConfigured from '../components/Intercom/index'
 import SEO from "../components/seo"
@@ -9,41 +8,40 @@ import AnchoredMenuButton from '../components/AnchoredMenuButton'
 import SideDrawer from '../components/SideDrawer/index'
 import Backdrop from '../components/Backdrop/index'
 import styled from '@emotion/styled'
-
-
-const Container = styled.div`
-hieght: 100vh;
-max-width: 13rem;
-padding: 1rem;
-position: fixed;
-`
+import Header from '../components/Header /index'
 
 const MenuContainer = styled.div`
   bottom: 1.5rem;
   left: 2.5rem;
   position: fixed;
-
+`
+const PostsContainer = styled.div`
+  margin: auto;
+  width: 70%;
 `
 
 
 const Blog = ( { data: {allPrismicPost} }) => {
     const { isOpen, closeMenu } = useContext(MenuContext)
     return(
-      <Layout>
-      <div style={{display: 'flex', direction: 'row'}}>
-        <div>
+      <div>
+        <Header />
+        <h1 style={{margin: '0 0 1rem 19rem'}}>Her blogger vi</h1>
+        <p style={{margin: '0 0 1rem 19rem', paddingBottom: '1rem'}}>
+        Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit <br/> 
+        <Link>Don't miss out the next post</Link>
+        </p>
+          <PostsContainer>
           <Listing allPrismicPost={allPrismicPost.edges} />
-        </div>
+          <Listing allPrismicPost={allPrismicPost.edges} />
+          </PostsContainer>
       <IntercomConfigured />
       <SideDrawer show={isOpen} />
       {isOpen ? <Backdrop click={closeMenu} /> : null}
-      </div>
-      <Container>
-      </Container>
       <MenuContainer>
       <AnchoredMenuButton />
       </MenuContainer>
-      </Layout>
+      </div>
     )
 }
  
@@ -60,7 +58,13 @@ export const pageQuery = graphql`
           title{
             text
           }
+          post_image{
+            small{
+               url
+             }
+            }
           description
+          author
         }
       }
     }

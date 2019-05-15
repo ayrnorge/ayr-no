@@ -1,8 +1,14 @@
-import React from "react"
+import React, { useContext } from "react"
 import { graphql, Link } from "gatsby"
-import Layout from "../components/layout"
+import PostLayout from "../components/PostLayout"
 import IntercomConfigured from '../components/Intercom/index'
 import styled from '@emotion/styled'
+import AnchoredMenuButton from '../components/AnchoredMenuButton/index'
+import Backdrop from '../components/Backdrop/index'
+import SideDrawer from '../components/SideDrawer/index'
+import { MenuContext } from '../Context/Menu'
+import moment from 'moment'
+import HubspotFormConfigured from '../components/HubspotFormConfigured/index' 
 
 const PostContainer = styled.div`
   padding: 0 3rem;
@@ -13,20 +19,32 @@ const PostContainer = styled.div`
 const PrevContainer = styled.div`
 position: fixed;
 margin-left: -10rem;
-margin-top: 20rem;
+margin-top: 15rem;
 `
 
 const NextClontainer = styled.div`
 position: fixed;
-margin-left: 70rem;
-margin-top: 20rem;
+margin-left: 57rem;
+margin-top: 15rem;
 `
 
+const Img = styled.img`
+padding: 1.6rem 0;
+width: 100%;
+height: 423px;
+`
+
+const MenuContainer = styled.div`
+  bottom: 1.5rem;
+  left: 2.5rem;
+  position: fixed;
+`
 
 
 const Post = ({ data: { prismicPost, allPrismicPost } }) => {
   const { data } = prismicPost
-  
+  const { isOpen, closeMenu } = useContext(MenuContext)
+
   const currentIndex = allPrismicPost.edges.findIndex((el) => el.node.uid === prismicPost.uid);
   const prevIndex = currentIndex + 1;
   const nextIndex = currentIndex - 1;
@@ -34,15 +52,25 @@ const Post = ({ data: { prismicPost, allPrismicPost } }) => {
   const nextSlug = nextIndex < 0 ? null : allPrismicPost.edges[nextIndex].node.uid;
 
   return (
-      <Layout>
+      <PostLayout>
       <PostContainer>
       <h1>{data.title.text}</h1>
-      <PrevContainer><Link to={`${prevSlug}`}>Forrige</Link></PrevContainer>
+      <span style={{margin: '0.2rem'}}>{moment(`${data.date}`).format('DD MMMM YYYY')} - skrevet av {data.author}</span>
+      <Img src={data.post_image.url} />
       <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
-      <NextClontainer><Link to={`${nextSlug}`}>Neste</Link></NextClontainer>
+      {prevSlug ? 
+      <PrevContainer><Link to={`${prevSlug}`}>Forrige</Link></PrevContainer> : null }
+      {nextSlug ? 
+      <NextClontainer><Link to={`${nextSlug}`}>Neste</Link></NextClontainer> : null }
       <IntercomConfigured />
+      <HubspotFormConfigured topic={'Chromebook'} />
       </PostContainer>
-      </Layout>
+      <SideDrawer show={isOpen} />
+      {isOpen ? <Backdrop click={closeMenu} /> : null}
+      <MenuContainer>
+      <AnchoredMenuButton />
+      </MenuContainer>
+      </PostLayout>
   )
 }
 
@@ -59,6 +87,11 @@ export const pageQuery = graphql`
         content {
           html
         }
+        post_image{
+        url
+        }
+        date
+        author
       }
     }
     allPrismicPost{
