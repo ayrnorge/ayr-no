@@ -1,70 +1,20 @@
-   .sub-menu a {
-    display: none;
-    padding: .25rem 0;
-   }
-   
-   .active + .sub-menu a {
-   display: block;
-   }
-   
-   .sub-menu .active {
-   display: block;
-   }
-   
-    .sub-menu .active  ~ a {
-   display: block;
-   z-index: 100;
-   }
-   
-   a + .sub-menu .active {
-   display: block;
-    }
-   
    ul .sub-menu {
    padding: 0;
    display: flex;
    flex-direction: column;
-   line-height: 1rem;
+   line-height: 1.2rem;
    }  
 
+ .sub-menu a {
+   padding: .06rem 0;
+   color: #76767a;
+   }
 
-/* All the menu is shown  */
-
-/* .sub-menu a {
-display: none;
-padding: .06rem 0;
-color: #76767a;
-font-size: 1rem;
-}
+.sub-menu .active {
+    color: #0073e9;
+    } 
 
 .sub-menu a:hover {
     color: #0073e9;
-}
+    }
 
-.active + .sub-menu a {
-display: none;
-}
-
- .sub-menu .active {
-display: block;
-color: #0073e9;
-} 
-
-
-ul .sub-menu {
-padding: 0 0 0 0.2rem ;
-} 
-
-.sub-menu {
-pointer-events:none;
-}
-
-.sub-menu a {
-pointer-events: auto;
-display: flex;
-}
-
-.sub-menu .active ~ a{
-display: block;
-}
- */

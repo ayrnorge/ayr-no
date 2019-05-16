@@ -8,7 +8,9 @@ import Backdrop from '../components/Backdrop/index'
 import SideDrawer from '../components/SideDrawer/index'
 import { MenuContext } from '../Context/Menu'
 import moment from 'moment'
-import HubspotFormConfigured from '../components/HubspotFormConfigured/index' 
+import HubspotFormConfigured from '../components/HubspotFormConfigured/index'
+import arrowRight from '../images/iconfinder_ChevronRight_1031536.png' 
+import arrowLeft from '../images/iconfinder_ChevronLeft.png' 
 
 const PostContainer = styled.div`
   padding: 0 3rem;
@@ -24,7 +26,7 @@ margin-top: 15rem;
 
 const NextClontainer = styled.div`
 position: fixed;
-margin-left: 57rem;
+margin-left: 53rem;
 margin-top: 15rem;
 `
 
@@ -38,6 +40,10 @@ const MenuContainer = styled.div`
   bottom: 1.5rem;
   left: 2.5rem;
   position: fixed;
+`
+const ArrowContainer = styled.div`
+width: 3px;
+height: 3px;
 `
 
 
@@ -59,9 +65,11 @@ const Post = ({ data: { prismicPost, allPrismicPost } }) => {
       <Img src={data.post_image.url} />
       <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
       {prevSlug ? 
-      <PrevContainer><Link to={`${prevSlug}`}>Forrige</Link></PrevContainer> : null }
+      <PrevContainer>
+        <Link to={`${prevSlug}`}><img style={{width: '60px' }} src={arrowLeft} /></Link></PrevContainer> : null }
       {nextSlug ? 
-      <NextClontainer><Link to={`${nextSlug}`}>Neste</Link></NextClontainer> : null }
+      <NextClontainer>
+        <Link to={`${nextSlug}`}><img style={{width: '60px' }} src={arrowRight} /></Link></NextClontainer> : null }
       <IntercomConfigured />
       <HubspotFormConfigured topic={'Chromebook'} />
       </PostContainer>

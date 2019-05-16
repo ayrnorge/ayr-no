@@ -6,7 +6,6 @@ import ListItem from './ListItem'
 const List = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
   flex-wrap: wrap;
   @media screen and (max-width: 768px) {
     flex-direction: column;

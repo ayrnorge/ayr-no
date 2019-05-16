@@ -25,6 +25,11 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
+@media (max-width: 768px) {
+ h1{
+  margin-bottom: -0.5rem;} 
+}
+
  h2 {
   font-size: 1.6rem;
 }
@@ -65,16 +70,3 @@ ul.sub-menu {
 }
  
     
-/* a + .sub-menu .active {
-  display: block;
-   }
-  
-  a {
-  text-decoration: none;
-  }
-  
-  
-  a:hover {
-  color: #0073e9;
-  }
-   */

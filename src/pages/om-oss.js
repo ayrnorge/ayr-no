@@ -13,11 +13,6 @@ import IntercomConfigured from '../components/Intercom/index'
 import SideMenu from '../components/SideMenu'
 import Header from '../components/Header /index'
 
-const IconContainer = styled.aside`
-bottom: 1.5rem;
-left: 3.5rem;
-position: fixed;
-`
 const Content = styled.div`
 width: 1050px;
 height: 100%;
@@ -26,10 +21,6 @@ padding: 0 4rem 2rem 2rem;
 @media screen and (max-width: 650px) {
   margin: 0 1rem 2rem 1rem;
 }
-`
-
-const ImageContainer = styled.div`
-margin: 0 6rem 0 6rem;
 `
 
 const aboutUs = ({ data: { prismicWhoAreWe } }) => {
@@ -46,11 +37,8 @@ const aboutUs = ({ data: { prismicWhoAreWe } }) => {
     <HubspotFormConfigured topic={prismicWhoAreWe.data.title.text}/>
     </Content>
     <MediaQuery minWidth={650}>
-    <IconContainer>
     <SideDrawer show={isOpen} />
     {isOpen ? <Backdrop click={closeMenu} /> : null}
-    <AnchoredMenuButton />
-    </IconContainer>
     </MediaQuery>
     </PageLayout>
   )

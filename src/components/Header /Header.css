@@ -25,9 +25,11 @@
     margin-right: 80px;
     max-height: 33px;
     width: 60px; }
+    
     @media screen and (max-width: 768px) {
       .ayr-logo {
-        margin-right: 2rem; } }
+        margin-right: 2rem; 
+        position: static;} }
   
   .search {
     background-image: url("/images/icon_search.svg");

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { graphql } from "gatsby"
 import Header from "../components/Header /index"
 import Helmet from 'react-helmet';
@@ -7,6 +7,7 @@ import SideMenu from '../components/SideMenu'
 import MediaQuery from 'react-responsive';
 import HubspotFormConfigured from '../components/HubspotFormConfigured/index.js'
 import IntercomConfigured from '../components/Intercom/index'
+import { DropdownContext } from '../Context/DropDown'
 
 const Container = styled.div`
 display: flex;
@@ -31,14 +32,78 @@ margin: 0 6rem 0 6rem;
 `
 
 const Service = ({ data: { prismicService } }) => {
-  const { data } = prismicService
+  const { data, tags } = prismicService
+  const { setCurrentTags } = useContext(DropdownContext)
+
+  setCurrentTags(tags)
+
+  return (
+    <>
+      <Header />
+        <Helmet>{prismicService.data.title.text}</Helmet> 
+      <Container>
+        <MediaQuery minWidth={650}>
+        <SideMenu />
+        </MediaQuery>
+      <Content>
+      <h1>{data.title.text}</h1>
+      <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
+        <HubspotFormConfigured topic={data.keyword} />
+      </Content>
+        <MediaQuery minWidth={650}>
+      <ImageContainer>
+      <img
+      src={data.image.url}
+      alt={data.image.alt}
+      />
+       </ImageContainer>
+      </MediaQuery>
+      <IntercomConfigured />
+      </Container> 
+      </>
+  )
+}
+
+export default Service
+
+
+export const PageTemplateQuery = graphql`
+query ServiceBySlug($uid: String!) {
+  prismicService(uid: { eq: $uid }){
+  uid
+  tags
+  data {
+    keyword
+    title {
+      text
+    }
+    content {
+         html
+        }
+    image {
+      url
+      alt
+    }
+      }
+    }
+  }
+`
+
+
+
+/* 
+previous
+
+const Service = ({ data: { prismicService } }) => {
+  const { data, tags } = prismicService
+  console.log("service", tags)
   return (
     <>
       <Header />
        <Helmet>{data.title.text}</Helmet> 
       <Container>
         <MediaQuery minWidth={650}>
-        <SideMenu />
+        <SideMenu tags={tags}/>
         </MediaQuery>
       <Content>
       <h1>{data.title.text}</h1>
@@ -59,27 +124,5 @@ const Service = ({ data: { prismicService } }) => {
   )
 }
 
-export default Service
 
-
-export const PageTemplateQuery = graphql`
-query ServiceBySlug($uid: String!) {
-  prismicService(uid: { eq: $uid }){
-  uid
-  data {
-    keyword
-    title {
-      text
-    }
-    content {
-         html
-        }
-    image {
-      url
-      alt
-    }
-      }
-    }
-  }
-`
-
+*/
