@@ -1,0 +1,50 @@
+pipelines:
+  pull-requests:
+    master:
+      - step:
+          name: Unit testing
+          image: node:8
+          caches:
+            - node
+          script: # Modify the commands below to build your repository.
+            - yarn
+            - yarn lint
+            - yarn test
+    develop:
+      - step:
+          name: Unit testing
+          image: node:8
+          caches:
+            - node
+          script: # Modify the commands below to build your repository.
+            - yarn
+            - yarn lint
+            - yarn test
+  branches:
+    master:
+      - step:
+          name: Build & Deploy to Firebase
+          image: node:8
+          deployment: production
+          caches:
+            - globalnode
+          script:
+            - yarn
+            - yarn build
+            - yarn global add firebase-tools
+            - firebase deploy --only hosting:ayr-no --token $FIREBASE_TOKEN
+    develop:
+      - step:
+          name: Build & Deploy to Firebase
+          image: node:8
+          deployment: staging
+          caches:
+            - globalnode
+          script:
+            - yarn
+            - yarn build
+            - yarn global add firebase-tools
+            - firebase deploy --only hosting:ayr-no-dev --token $FIREBASE_TOKEN
+definitions:
+  caches:
+    globalnode: /usr/local/lib/node_modules
