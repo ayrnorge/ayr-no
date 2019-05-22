@@ -20,7 +20,7 @@ width: 60px; }
 
 
 const SideDrawer = props => {
-  const { closeMenu } = useContext(MenuContext)
+  const { closeMenu } = useContext(MenuContext) || { isOpen: false }
 
   let drawerClasses = "side-drawer"
   if (props.show) {

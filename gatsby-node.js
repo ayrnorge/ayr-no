@@ -1,6 +1,7 @@
 const path = require("path")
 const _ = require('lodash')
 
+
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
 const wrapper = promise =>
 promise.then(result => {
@@ -9,6 +10,7 @@ promise.then(result => {
   }
   return result
 })
+
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -89,7 +91,20 @@ exports.createPages = async ({ graphql, actions }) => {
     },
   })
 })
-
-
 }
 
+
+// to calculate the share URL with social icons
+const { createFilePath } = require('gatsby-source-filesystem');
+exports.onCreateNode = ({ node, actions, getNode }) => {
+	const { createNodeField } = actions;
+
+	if (node.internal.type === `allPrismicPost`) {
+		const value = createFilePath({ node, getNode });
+		createNodeField({
+			name: `slug`,
+			node,
+			value,
+		});
+	}
+};

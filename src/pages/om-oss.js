@@ -1,17 +1,15 @@
 import React, { useContext } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import PageLayout from "../components/PageLayout"
 import SEO from "../components/seo"
 import HubspotFormConfigured from '../components/HubspotFormConfigured/index'
 import styled from '@emotion/styled'
-import AnchoredMenuButton from '../components/AnchoredMenuButton/index'
 import { MenuContext } from '../Context/Menu'
 import SideDrawer from '../components/SideDrawer/index'
 import Backdrop from '../components/Backdrop/index'
 import MediaQuery from 'react-responsive';
-import IntercomConfigured from '../components/Intercom/index'
-import SideMenu from '../components/SideMenu'
-import Header from '../components/Header /index'
+import SideMenu from '../components/SideMenu/index'
+
 
 const Content = styled.div`
 width: 1050px;
@@ -19,15 +17,17 @@ height: 100%;
 margin: 0 0 2rem 14rem;
 padding: 0 4rem 2rem 2rem;
 @media screen and (max-width: 650px) {
-  margin: 0 1rem 2rem 1rem;
+  margin: 0;
 }
 `
 
 const aboutUs = ({ data: { prismicWhoAreWe } }) => {
-  const { isOpen, closeMenu } = useContext(MenuContext)
+  const { isOpen, closeMenu } = useContext(MenuContext) || { isOpen: false }
   return (
     <PageLayout>
+       <MediaQuery minWidth={650}>
       <SideMenu />
+       </MediaQuery>
     <Content>
     <SEO title="Om oss" />
     <h1>{prismicWhoAreWe.data.title.text}</h1>

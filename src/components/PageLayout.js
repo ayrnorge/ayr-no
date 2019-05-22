@@ -10,21 +10,17 @@ const Container = styled.div`
 display: flex;
 flex-direction: row;
 @media screen and (max-width: 650px) {
-  margin: 0 0 2rem;
+  margin: 0 1rem 2rem 1rem;
 }
 ` 
 
-const ImageContainer = styled.div`
-margin: 0 6rem 0 6rem;
-`
+
 
 const PageLayout = ({ children }) => (
           <div>
             <Header />
           <Container>
-          <main>
           {children}
-          </main>
           <IntercomConfigured />
           </Container>
           </div>

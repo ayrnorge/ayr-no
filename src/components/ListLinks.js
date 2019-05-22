@@ -4,7 +4,7 @@ import {MenuContext}from '../Context/Menu'
 import ActiveIndicator from '../images/active-indicator.svg'
 
 const ListLinks = () => {
-  const { closeMenu } = useContext(MenuContext)
+  const { closeMenu } = useContext(MenuContext) || { isOpen: false }
 
   return(
 <ul style={{ listStyle: 'none', margin: 'auto'}}>

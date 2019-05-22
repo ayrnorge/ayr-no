@@ -1,22 +1,29 @@
-require("dotenv").config({
+/* require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
+}) */
+
+require('dotenv').config({
+  path: `.env`,
 })
 
 module.exports = {
   siteMetadata: {
-    title: `AYR`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `AYR gjør IT enkelt for deg og din bedrift`,
+    description: `AYR ser helheten, og hjelper deg med å bruke IT til å bli bedre på din kjernevirksomhet.`,
     author: `Bjerk`,
+    url: `http://localhost:8000/`,
+    siteLanguage: 'no'
   },
   plugins: [
     {
       resolve: `gatsby-source-prismic`,
       options: {
         repositoryName: `ayr-web`,
-        accessToken: `MC5YTDcteHlvQUFENEFRVUY2.77-9Aj8A77-977-9KO-_ve-_ve-_vXTvv73vv71577-977-9cO-_vWceAwEw77-977-9EjVd77-977-977-9UQ`,
+        accessToken: `${process.env.API_KEY}`,
         linkResolver: () => post => `/${post.uid}`,
       },
     },
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -30,8 +37,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Ayr`,
+        short_name: `Ayr`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -39,6 +46,7 @@ module.exports = {
         icon: `src/images/ayr_logo.svg`, // This path is relative to the root of the site.
       },
     },
+    'gatsby-plugin-offline',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import moment from 'moment'
@@ -44,6 +43,3 @@ export default class ListItem extends Component {
   }
 }
 
-ListItem.propTypes = {
-  node: PropTypes.object.isRequired,
-}

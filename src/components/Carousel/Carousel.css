@@ -1,8 +1,10 @@
 .carousel-container {
+  position: relative;
     display: flex; }
     @media screen and (max-width: 768px) {
       .carousel-container {
-        flex-direction: column; } }
+        flex-direction: column;
+        position: relative; } }
   
   .active {
     color: #0073e9; }
@@ -51,16 +53,17 @@
     font-size: calc(30px + (63 - 30) * ((100vw - 300px) / (1600 - 300)));
     margin: 0 0 25px;
     line-height: 2.5rem;
+    font-family: 'Playfair Display';
   }
     @media screen and (max-width: 768px) {
       .carousel-item h2 {
         margin-bottom: 0.5rem; } }
   
   .carousel-item p {
-    color: #7671a0;
+    color: #212026;
     font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
     margin: 3rem 0 0;
-    max-width: 40rem; }
+    max-width: 42rem; }
     @media screen and (max-width: 768px) {
       .carousel-item p {
         margin: 1.3rem 0 0;

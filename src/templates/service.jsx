@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Header from "../components/Header /index"
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled'
-import SideMenu from '../components/SideMenu'
+import SideMenu from '../components/SideMenu/index'
 import MediaQuery from 'react-responsive';
 import HubspotFormConfigured from '../components/HubspotFormConfigured/index.js'
 import IntercomConfigured from '../components/Intercom/index'
@@ -33,9 +33,10 @@ margin: 0 6rem 0 6rem;
 
 const Service = ({ data: { prismicService } }) => {
   const { data, tags } = prismicService
-  const { setCurrentTags } = useContext(DropdownContext)
-
+  const { setCurrentTags } = useContext(DropdownContext) || { setCurrentTags: () => {}}
+  
   setCurrentTags(tags)
+ 
 
   return (
     <>

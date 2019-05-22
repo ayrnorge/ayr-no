@@ -7,8 +7,7 @@ import '../AnchoredMenuButton/AnchoredMenuButton.css'
 
 
 const AnchoredMenuButton = () => {
-   const { openMenu } = useContext(MenuContext)
-   let drawerClasses = "side-drawer"
+   const { openMenu } = useContext(MenuContext) || { isOpen: false }
 
     return (
         <button className={`toggle-button`} onClick={openMenu}>

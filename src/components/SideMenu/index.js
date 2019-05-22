@@ -3,12 +3,12 @@ import { StaticQuery, graphql } from "gatsby"
 import styled from '@emotion/styled'
 import { Link } from "gatsby"
 import './sideMenu.css'
-import AnchoredMenuButton from '../components/AnchoredMenuButton/index'
-import SideDrawer from '../components/SideDrawer/index'
-import { MenuContext } from '../Context/Menu'
-import { DropdownContext } from '../Context/DropDown'
-import Backdrop from '../components/Backdrop/index'
-import ButtonLink from '../components/ButtonLink/index'
+import AnchoredMenuButton from '../AnchoredMenuButton/index'
+import SideDrawer from '../SideDrawer/index'
+import { MenuContext } from '../../Context/Menu'
+import { DropdownContext } from '../../Context/DropDown'
+import Backdrop from '../Backdrop/index'
+import ButtonLink from '../ButtonLink/index'
 
 const Container = styled.div`
 background-color: #fff;
@@ -23,8 +23,8 @@ position: fixed;
 `
 
 const SideMenu = ({ data }) => {
-    const { isOpen, closeMenu } = useContext(MenuContext)
-    const { currentTags } = useContext(DropdownContext)
+    const { isOpen, closeMenu } = useContext(MenuContext) || { isOpen: false }
+    const { currentTags } = useContext(DropdownContext) || { currentTags: []}
 
     data.sort((a ,b) => {
         return a.position - b.position
@@ -59,7 +59,6 @@ const SideMenu = ({ data }) => {
           </IconContainer>
     </Container>
 )}
- 
  
 
 export default () => (

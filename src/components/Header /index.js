@@ -12,7 +12,7 @@ import SideDrawer from '../../components/SideDrawer/index'
 import Backdrop from '../../components/Backdrop/index'
 
 const Header = () => {
-  const { isOpen, closeMenu } = useContext(MenuContext)
+  const { isOpen, closeMenu } = useContext(MenuContext) || { isOpen: false }
 
   return(
   <header className="header-main">

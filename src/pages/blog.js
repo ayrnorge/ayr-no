@@ -1,5 +1,5 @@
 import React, { useContext }  from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Listing from "../components/Listing"
 import IntercomConfigured from '../components/Intercom/index'
 import SEO from "../components/seo"
@@ -25,16 +25,14 @@ const PostsContainer = styled.div`
 
 
 const Blog = ( { data: {allPrismicPost} }) => {
-    const { isOpen, closeMenu } = useContext(MenuContext)
+    const { isOpen, closeMenu } = useContext(MenuContext) || { isOpen: false }
     return(
       <div>
         <Header />
           <PostsContainer>
         <h1>Her blogger vi</h1>
         <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit <br/> 
-        <Link>Don't miss out the next post</Link>
         </p>
-          <Listing allPrismicPost={allPrismicPost.edges} />
           <Listing allPrismicPost={allPrismicPost.edges} />
           </PostsContainer>
       <IntercomConfigured />

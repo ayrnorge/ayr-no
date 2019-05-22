@@ -8,10 +8,11 @@ const HUBSPOT_FORMID = '3293bc38-18b4-4af0-8094-4c00f0f71653';
 
 
 const HubspotFormConfigured = ({ topic }) => {
-  const TEXT = `Vil du vite mer om ${topic}? Fyll ut skjemaet under, og vi kontakter deg for en hyggelig prat.`;
+  const TEXT = `Vil du vite mer om ${topic}?`;
   return (
     <div className='hubspot-form'>
-      <p>{TEXT}</p>
+        <h2>{TEXT}</h2>
+      <p>Fyll ut skjemaet under, og vi kontakter deg for en hyggelig prat.</p>
       <HubspotForm
         portalId={HUBSPOT_PORTALID}
         formId={HUBSPOT_FORMID}
