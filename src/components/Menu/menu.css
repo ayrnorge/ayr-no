@@ -3,39 +3,18 @@
   padding-left: 0.3rem;
   padding-bottom: 0.3rem;
   background-color: #fff;
-  max-width: 15rem;
+  max-width: 19rem;
   padding-left: 0.3rem;
 }
 
 .menu.mobile {
-  padding: 10rem;
-  background-color: red;
+  margin: auto;
+}
+.menu.mobile a{
+  font-size: 26px;
 }
 
-/* .menu .mobile-version {
-  text-align: center;
+.menu.mobile li {
+  padding-top: 1rem;
 }
- */
-/* 
-  .menu.sidemenu ul.sub-menu {
-   padding: 0 0;
-   display: flex;
-   flex-direction: column;
-   line-height: 1.2rem;
-   list-style: none;
-   }  
-
-   .menu.sidemenu.sub-menu a {
-   padding: .06rem 0;
-   color: #76767a;
-   }
-
-   .menu.sidemenu .sub-menu .active {
-    color: #0073e9;
-    } 
-
-    .menu.sidemenu .sub-menu a:hover {
-    color: #0073e9;
-    }
- */
 

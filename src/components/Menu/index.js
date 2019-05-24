@@ -52,7 +52,7 @@ const Menu = ({ data, styleName })  => {
 )}
  
 
-export default () => (
+export default (props) => (
   <StaticQuery
     query={graphql`
     query SideMenu {
@@ -88,7 +88,7 @@ export default () => (
             }
         })
         return (
-     <Menu data={mainPages} />
+     <Menu data={mainPages} {...props} />
     )}}
     />
     )
