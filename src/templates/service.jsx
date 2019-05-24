@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Header from "../components/Header /index"
 import Helmet from 'react-helmet';
 import styled from '@emotion/styled'
-import SideMenu from '../components/SideMenu/index'
+import Menu from '../components/Menu/index'
 import MediaQuery from 'react-responsive';
 import HubspotFormConfigured from '../components/HubspotFormConfigured/index.js'
 import IntercomConfigured from '../components/Intercom/index'
@@ -44,7 +44,9 @@ const Service = ({ data: { prismicService } }) => {
         <Helmet>{prismicService.data.title.text}</Helmet> 
       <Container>
         <MediaQuery minWidth={650}>
-        <SideMenu />
+        <div style={{position: 'fixed'}}>
+          <Menu />
+        </div>
         </MediaQuery>
       <Content>
       <h1>{data.title.text}</h1>

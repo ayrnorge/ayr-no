@@ -11,7 +11,6 @@ html {
   font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
-
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display';
 }
@@ -38,7 +37,7 @@ h1 {
   margin-top: 2rem;
   margin-bottom: 0;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 100;
   font-family: 'Source Sans Pro'
 }
  

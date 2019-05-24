@@ -8,11 +8,11 @@ const ListLinks = () => {
 
   return(
 <ul style={{ listStyle: 'none', margin: 'auto'}}>
-  <li style={{ paddingBottom: '1rem'}}>
-   <Link to="/tjenester" onClick={closeMenu}>Hva kan vi?</Link>
-  </li>
   <li style={{ paddingBottom: '1rem' }}>
    <Link to="/om-oss" onClick={closeMenu}>Hvem er vi</Link>
+  </li>
+  <li style={{ paddingBottom: '1rem'}}>
+   <Link to="/tjenester" onClick={closeMenu}>Hva kan vi?</Link>
   </li>
   <li style={{ paddingBottom: '1rem' }}>
    <Link to="/tjenester-gsuite-kurs" onClick={closeMenu}>Hva kan du lære?</Link>

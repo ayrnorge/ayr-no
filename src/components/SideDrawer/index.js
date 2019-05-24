@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
 import { Link } from 'gatsby'
 import {MenuContext} from '../../Context/Menu'
-import ListLinks from '../ListLinks'
 import "./SideDrawer.css"
 import ayrLogo from '../../images/ayr_logo.svg';
 import styled from '@emotion/styled'
+import Menu from '../Menu/index'
 
 const LogoContainer = styled.div`
 flex: none;
@@ -15,7 +15,11 @@ width: 60px; }
 @media screen and (max-width: 768px) {
   .ayr-logo {
     margin-right: 2rem; }
+`
 
+const MenuContainer = styled.div`
+text-align: center;
+margin: auto;
 `
 
 
@@ -33,9 +37,9 @@ const SideDrawer = props => {
     <img className="header-child" src={ayrLogo} alt="AYR logo" />
     </Link>
     </LogoContainer>
-    <nav style={{ marginTop: '10rem'}}>
-    <ListLinks />
-    </nav>
+    <MenuContainer>
+      <Menu styleName={'mobile'}/>
+      </MenuContainer>
     </div>
   )
 }

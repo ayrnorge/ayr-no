@@ -2,28 +2,23 @@ import React, { useContext }from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from '@emotion/styled'
 import { Link } from "gatsby"
-import './sideMenu.css'
-import AnchoredMenuButton from '../AnchoredMenuButton/index'
-import SideDrawer from '../SideDrawer/index'
+import './menu.css'
 import { MenuContext } from '../../Context/Menu'
 import { DropdownContext } from '../../Context/DropDown'
-import Backdrop from '../Backdrop/index'
 import ButtonLink from '../ButtonLink/index'
-
+import Footer from '../Footer'
+/* 
 const Container = styled.div`
 background-color: #fff;
-max-width: 13rem;
-padding: 1rem;
-position: fixed;
-`
-const IconContainer = styled.div`
-bottom: 3rem;
-left: 3rem;
-position: fixed;
-`
+max-width: 15rem;
+padding-left: 1rem;
+margin: auto;
+` */
 
-const SideMenu = ({ data }) => {
-    const { isOpen, closeMenu } = useContext(MenuContext) || { isOpen: false }
+
+
+const Menu = ({ data, styleName })  => {
+    const { closeMenu } = useContext(MenuContext) || { isOpen: false }
     const { currentTags } = useContext(DropdownContext) || { currentTags: []}
 
     data.sort((a ,b) => {
@@ -33,15 +28,16 @@ const SideMenu = ({ data }) => {
      data.forEach((mainPages) => {
         mainPages.subpages.sort((a, b) => a.position - b.position )
     })  
+    console.log('style', styleName)
  
     return(
-    <Container>
-        {  <ul style={{ padding: '0', listStyleType: 'none' }}>{data.map((page) =>
-        <li  key={page.position} style={{ paddingBottom: '0.7rem', fontSize: '.8rem', color: '#d3d2d4' }}>
-        <Link to={`/${page.uid}`}  key={page.position} activeClassName="active">
+    <div className={`menu ${styleName || ''}`}>
+        {  <ul className={`menu ${styleName || ''}`}>{data.map((page) =>
+        <li  key={page.position} className={`menu ${styleName || ''}`}>
+        <Link to={`/${page.uid}`}  key={page.position} activeClassName="active" onClick={closeMenu}>
         {page.keyword} 
         </Link>
-        <ul className="sub-menu">
+        <ul className={`menu ${styleName || ''}`}>
         {page.subpages.map(subpage =>
             { return ( 
                 subpage.tags.some(element => currentTags.includes(element)) &&  //tags array comparison to show the proper sub-menu list 
@@ -52,12 +48,7 @@ const SideMenu = ({ data }) => {
         </li>
         )}</ul> } 
         <ButtonLink text={"Ta Kontakt"} url="tel:+4745969999"/>
-         <SideDrawer show={isOpen} />
-         {isOpen ? <Backdrop click={closeMenu} /> : null}
-          <IconContainer>
-          <AnchoredMenuButton />
-          </IconContainer>
-    </Container>
+    </div>
 )}
  
 
@@ -97,9 +88,8 @@ export default () => (
             }
         })
         return (
-     <SideMenu data={mainPages} />
+     <Menu data={mainPages} />
     )}}
     />
     )
     
-

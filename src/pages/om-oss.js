@@ -8,7 +8,7 @@ import { MenuContext } from '../Context/Menu'
 import SideDrawer from '../components/SideDrawer/index'
 import Backdrop from '../components/Backdrop/index'
 import MediaQuery from 'react-responsive';
-import SideMenu from '../components/SideMenu/index'
+import Menu from '../components/Menu/index'
 
 
 const Content = styled.div`
@@ -26,7 +26,9 @@ const aboutUs = ({ data: { prismicWhoAreWe } }) => {
   return (
     <PageLayout>
        <MediaQuery minWidth={650}>
-      <SideMenu />
+      <div style={{position: 'fixed'}}>
+        <Menu  />
+      </div>
        </MediaQuery>
     <Content>
     <SEO title="Om oss" />

@@ -3,14 +3,10 @@ import { graphql } from "gatsby"
 import Listing from "../components/Listing"
 import IntercomConfigured from '../components/Intercom/index'
 import SEO from "../components/seo"
-import { MenuContext } from '../Context/Menu'
-import AnchoredMenuButton from '../components/AnchoredMenuButton'
-import SideDrawer from '../components/SideDrawer/index'
-import Backdrop from '../components/Backdrop/index'
 import styled from '@emotion/styled'
 import Header from '../components/Header /index'
-import MediaQuery from 'react-responsive';
-
+import Menu from '../components/Menu/index'
+import MediaQuery from 'react-responsive'
 
 const IconContainer = styled.div`
 bottom: 3rem;
@@ -25,10 +21,14 @@ const PostsContainer = styled.div`
 
 
 const Blog = ( { data: {allPrismicPost} }) => {
-    const { isOpen, closeMenu } = useContext(MenuContext) || { isOpen: false }
     return(
       <div>
         <Header />
+        <MediaQuery minWidth={650}>
+      <div style={{position: 'fixed'}}>
+        <Menu  />
+      </div>
+       </MediaQuery>
           <PostsContainer>
         <h1>Her blogger vi</h1>
         <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit <br/> 
@@ -36,13 +36,6 @@ const Blog = ( { data: {allPrismicPost} }) => {
           <Listing allPrismicPost={allPrismicPost.edges} />
           </PostsContainer>
       <IntercomConfigured />
-      <SideDrawer show={isOpen} />
-      {isOpen ? <Backdrop click={closeMenu} /> : null}
-      <MediaQuery minWidth={650}>
-      <IconContainer>
-      <AnchoredMenuButton />
-      </IconContainer>
-      </MediaQuery> 
       </div>
     )
 }
