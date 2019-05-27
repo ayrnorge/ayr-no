@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "ayr-no",
-      "public": "build",
+      "public": "public",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -17,7 +17,7 @@
     },
     {
       "target": "ayr-no-dev",
-      "public": "build",
+      "public": "public",
       "ignore": [
         "firebase.json",
         "**/.*",
