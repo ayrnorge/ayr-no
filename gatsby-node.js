@@ -1,6 +1,5 @@
 const path = require("path")
 const _ = require('lodash')
-const { createFilePath } = require("gatsby-source-filesystem")
 
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
 const wrapper = promise =>
