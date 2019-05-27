@@ -1,0 +1,10 @@
+.toggle-button {
+  height: 24px;
+  width: 30px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-right: 1.5rem;
+  outline: none;
+}
+

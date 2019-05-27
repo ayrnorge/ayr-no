@@ -1,0 +1,38 @@
+// font
+$sans-serif: 'Source Sans Pro',
+sans-serif;
+$serif: 'Playfair Display',
+serif;
+// color values
+$anchored-icon-menu-bg: #fff;
+$anchored-icon-menu-border: rgba(0, 0, 0, .1);
+$anchored-icon-menu-shadow: #eee;
+$bg-color: #fff;
+$link-color: #0073e9;
+$link-color-inactive: #767676;
+$nav-link-color: #212026;
+$text-subtle: #4c4c4c;
+// carousel content
+$carousel-color-paragraph: #7671a0;
+// input placeholder
+$placeholder-color: #bab7cf;
+// sidemenu
+$sidemenu-color-link: #d3d2d4;
+$sidemenu-color-active: $link-color;
+// navdrawer
+$navdrawer-color-link: #59585c;
+// pages
+$text-color: #76767a;
+// fluid typography
+$global-min-width: 320px;
+$global-max-width: 2500px;
+$global-min-font: 14px;
+$global-max-font: 26px;
+// header scaling
+$mod-1: 1; // mobile
+$mod-2: 1.5; // desktop
+// max width of main content
+$content-max-width: 2500px;
+// blog post
+$blockquote-margin-color: rgb(210, 210, 210);
+$blockquote-background-color: rgb(250, 250, 250);

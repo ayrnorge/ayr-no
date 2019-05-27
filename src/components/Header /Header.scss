@@ -1,0 +1,29 @@
+@import '../../variables';
+.header-main {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: $content-max-width;
+  order: 0;
+  padding: 60px;
+  @media screen and (max-width: 768px) {
+    padding: 1rem 1rem 3rem;
+  }
+}
+
+.header-child-right {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+}
+
+.ayr-logo {
+  flex: none;
+  margin-right: 80px;
+  max-height: 33px;
+  width: 60px;
+  @media screen and (max-width: 768px) {
+    margin-right: 2rem;
+  }
+}

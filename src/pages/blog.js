@@ -1,16 +1,65 @@
 import React from "react"
-import { Link } from "gatsby"
-
-import Layout from "../components/layout"
+import { graphql } from "gatsby"
+import Listing from "../components/Listing"
+import IntercomConfigured from '../components/Intercom/index'
 import SEO from "../components/seo"
+import styled from '@emotion/styled'
+import Header from '../components/Header /index'
+import Menu from '../components/Menu/index'
+import MediaQuery from 'react-responsive'
 
-const Blog = () => (
-  <Layout>
-    <SEO title="Blog" />
-    <h1>Blog</h1>
-    <p>Welcome to our blog</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+const PostsContainer = styled.div`
+  margin: auto;
+  width: 70%;
+`
 
-export default Blog
+
+const Blog = ( { data: {allPrismicPost} }) => {
+    return(
+      <div>
+        <Header />
+        <MediaQuery minWidth={650}>
+      <div style={{position: 'fixed'}}>
+        <Menu  />
+      </div>
+       </MediaQuery>
+          <PostsContainer>
+        <h1>Her blogger vi</h1>
+        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit <br/> 
+        </p>
+          <Listing allPrismicPost={allPrismicPost.edges} />
+          </PostsContainer>
+      <IntercomConfigured />
+      </div>
+    )
+}
+ 
+ export default Blog
+
+export const pageQuery = graphql`
+ query BlogQuery {
+  allPrismicPost(
+    sort: { fields: [data___date], order: DESC }
+    ) {
+    edges{
+      node{
+        uid
+        data{
+          date
+          title{
+            text
+          }
+          post_image{
+            small{
+               url
+             }
+            }
+          description
+          author
+        }
+      }
+    }
+  }
+ }
+`
+
