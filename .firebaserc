@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "ayr-no"
+  },
+  "targets": {
+    "ayr-no": {
+      "hosting": {
+        "ayr-no": [
+          "ayr-no"
+        ],
+        "ayr-no-dev": [
+          "ayr-no-dev"
+        ]
+      }
+    }
   }
 }
