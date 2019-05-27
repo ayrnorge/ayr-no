@@ -1,4 +1,4 @@
-import React, { useContext }  from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Listing from "../components/Listing"
 import IntercomConfigured from '../components/Intercom/index'
@@ -7,12 +7,6 @@ import styled from '@emotion/styled'
 import Header from '../components/Header /index'
 import Menu from '../components/Menu/index'
 import MediaQuery from 'react-responsive'
-
-const IconContainer = styled.div`
-bottom: 3rem;
-left: 3rem;
-position: fixed;
-`
 
 const PostsContainer = styled.div`
   margin: auto;
@@ -44,7 +38,9 @@ const Blog = ( { data: {allPrismicPost} }) => {
 
 export const pageQuery = graphql`
  query BlogQuery {
-  allPrismicPost(sort: { fields: [data___date], order: DESC }) {
+  allPrismicPost(
+    sort: { fields: [data___date], order: DESC }
+    ) {
     edges{
       node{
         uid

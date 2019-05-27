@@ -5,11 +5,11 @@ import "./SideDrawer.css"
 import ayrLogo from '../../images/ayr_logo.svg';
 import styled from '@emotion/styled'
 import Menu from '../Menu/index'
+import AnchoredMenuButton from '../AnchoredMenuButton/index'
+import googlecloudBadge from '../../images/google_cloud_partner_badge.svg'
 
 const LogoContainer = styled.div`
-flex: none;
-margin: auto;
-padding: 60px;
+margin-top: 1rem;
 max-height: 33px;
 width: 60px; }
 @media screen and (max-width: 768px) {
@@ -32,11 +32,17 @@ const SideDrawer = props => {
   } 
   return (
     <div className={drawerClasses}>
+    <div style={{display: 'flex', justifyContent: 'space-between', padding: '1rem 1rem 3rem'}}>
     <LogoContainer>
-      <Link onClick={closeMenu} className="ayr-logo" to="/" >
+    <Link onClick={closeMenu} className="ayr-logo" to="/" >
     <img className="header-child" src={ayrLogo} alt="AYR logo" />
     </Link>
     </LogoContainer>
+    <img className="google-cloud-badge" src={googlecloudBadge} alt="Google Cloud partner badge"/>
+    <div onClick={closeMenu} style={{marginTop: '1rem'}}>
+    <AnchoredMenuButton  />
+    </div>
+    </div>
     <MenuContainer>
       <Menu styleName={'mobile'}/>
       </MenuContainer>

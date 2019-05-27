@@ -6,14 +6,7 @@ import './menu.css'
 import { MenuContext } from '../../Context/Menu'
 import { DropdownContext } from '../../Context/DropDown'
 import ButtonLink from '../ButtonLink/index'
-import Footer from '../Footer'
-/* 
-const Container = styled.div`
-background-color: #fff;
-max-width: 15rem;
-padding-left: 1rem;
-margin: auto;
-` */
+
 
 
 
@@ -28,7 +21,6 @@ const Menu = ({ data, styleName })  => {
      data.forEach((mainPages) => {
         mainPages.subpages.sort((a, b) => a.position - b.position )
     })  
-    console.log('style', styleName)
  
     return(
     <div className={`menu ${styleName || ''}`}>
@@ -41,7 +33,7 @@ const Menu = ({ data, styleName })  => {
         {page.subpages.map(subpage =>
             { return ( 
                 subpage.tags.some(element => currentTags.includes(element)) &&  //tags array comparison to show the proper sub-menu list 
-              <Link activeClassName="active" to={`/${subpage.uid}`} key={subpage.title}>{subpage.title}</Link> // the currentTag comes from Service component
+              <Link activeClassName="active" to={`/${subpage.uid}`} key={subpage.title} onClick={closeMenu}>{subpage.title}</Link> // the currentTag comes from Service component
               )}
         )}
         </ul>
@@ -88,7 +80,7 @@ export default (props) => (
             }
         })
         return (
-     <Menu data={mainPages} {...props} />
+        <Menu data={mainPages} {...props} />
     )}}
     />
     )

@@ -107,7 +107,7 @@ const Post = ({ data: { prismicPost, allPrismicPost } }) => {
 export default Post
 
 export const pageQuery = graphql`
-  query PostBySlug($uid: String!) {
+  query PostBySlug($uid: String!)  {
     prismicPost(uid: { eq: $uid }) {
       uid
       data {
@@ -125,7 +125,7 @@ export const pageQuery = graphql`
         author
       }
     }
-    allPrismicPost{
+    allPrismicPost {
       edges{
         node{
           uid

@@ -2,7 +2,8 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import '../components/layout.css'
-import Menu from '../components/Menu/index'
+import { StaticQuery, graphql } from "gatsby"
+import activeIndicator from '../images/active-indicator.svg'
 
 const Container = styled.div`
   display: flex;
@@ -15,24 +16,67 @@ const Container = styled.div`
       padding: 0 1rem 1rem; }
 `
 
+const Nav = styled(Link)`
+padding-bottom: 10px;
+:hover {
+background-image: url(${activeIndicator});
+background-position: bottom;
+background-repeat: no-repeat;
+background-size: 20px 2px;
+padding-bottom: 10px;
+}
+`
+
 
 const Footer = ({ links }) => {
-  console.log('footer', links)
-  
     return (
   <Container>
-  <Link className="nav-link" style={{marginRight: '2rem'}} to="/tjenester/">Hva kan vi?</Link>
-  <Link className="nav-link" style={{marginRight: '2rem'}} to="/om-oss/">Hvem er vi?</Link>
-  <Link className="nav-link" to="/blog/">Her blogger vi</Link>
-      </Container>
+    {links.map(link => (
+      <Nav key={link.keyword} to={link.uid} style={{marginRight: '2rem'}}>
+      {link.keyword}
+      </Nav>
+    ))}
+  </Container>
     )
 }
 
-export default Footer
-
-/* 
-  <Link className="nav-link" style={{marginRight: '2rem'}} to="/tjenester/">Hva kan vi?</Link>
-  <Link className="nav-link" style={{marginRight: '2rem'}} to="/om-oss/">Hvem er vi?</Link>
-  <Link className="nav-link" to="/blog/">Her blogger vi</Link>
-
-*/
+export default (props) => (
+  <StaticQuery
+    query={graphql`
+    query Fotoer {
+    allPrismicService{
+    edges{
+        node{
+        uid
+        tags
+        data{
+            position
+            keyword
+            title{
+            text
+            }
+        }
+        }
+    }
+    }
+     }
+    `}
+    render={data => { 
+        const mainPages = []
+        data.allPrismicService.edges.forEach(edge => {
+        if (edge.node.tags.includes("Main Service")) {
+        const subpages = []
+        const cond = edge.node.tags.filter(tag => !tag.includes("Main Service"))
+        data.allPrismicService.edges.forEach(sub => {
+        if (!sub.node.tags.includes("Main Service") && sub.node.tags.includes(cond[0]) ) {  
+           subpages.push( { title: sub.node.data.title.text, uid: sub.node.uid, position: sub.node.data.position, tags: sub.node.tags });
+                    }
+                })
+                mainPages.push({ keyword: edge.node.data.keyword, subpages, uid: edge.node.uid, position: edge.node.data.position })
+            }
+        })
+        return (
+        <Footer links={mainPages} {...props} />
+    )}}
+    />
+    )
