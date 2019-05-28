@@ -37,8 +37,6 @@ const Footer = ({ links }) => {
     mainPages.subpages.sort((a, b) => a.position - b.position )
 })  
 
-
-
     return (
   <Container>
     {links.map(link => (
@@ -46,6 +44,9 @@ const Footer = ({ links }) => {
       {link.keyword}
       </Nav>
     ))}
+      <Nav key="blog" to="/blog/" style={{marginRight: '2rem'}}>
+      Blogg
+      </Nav>
   </Container>
     )
 }

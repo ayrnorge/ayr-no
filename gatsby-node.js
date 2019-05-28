@@ -1,5 +1,7 @@
 const path = require("path")
 const _ = require('lodash')
+const { createFilePath } = require('gatsby-source-filesystem');
+
 
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
 const wrapper = promise =>
@@ -67,37 +69,6 @@ exports.createPages = async ({ graphql, actions }) => {
     )
     const postsList = result.data.allPrismicPost.edges
     const postTemplate = require.resolve('./src/templates/post.jsx')
-      //pagination
-    const postsPerPage = 2;
-    const numPages = Math.ceil(postsList.length / postsPerPage);
-      
-      Array.from({ length: numPages }).forEach((_, i) => {
-        createPage({
-          path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-          component: path.resolve("./src/pages/blog.js"),
-          context: {
-            limit: postsPerPage, 
-            skip: i * postsPerPage, 
-            numPages, 
-            currentPage: i + 1 }  
-        });
-      });
-    
-
-      exports.onCreateNode = ({ node, actions, getNode }) => {
-        const { createNodeField } = actions
-        if (node.internal.type === `allPrismicPost`) {
-          const value = createFilePath({ node, getNode })
-          createNodeField({
-            name: `slug`,
-            node,
-            value,
-          })
-        }
-      }
-    
-    //
-
 
   postsList.forEach(edge => {
     createPage({
@@ -127,7 +98,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
 
 // to calculate the share URL with social icons
-const { createFilePath } = require('gatsby-source-filesystem');
 exports.onCreateNode = ({ node, actions, getNode }) => {
 	const { createNodeField } = actions;
 
@@ -140,3 +110,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 		});
 	}
 };
+exports.onCreateNode = ({ node }) => {
+  console.log(node.internal.type)
+}

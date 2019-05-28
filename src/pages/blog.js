@@ -12,8 +12,16 @@ const PostsContainer = styled.div`
   width: 70%;
 `
 
-
 const Blog = ( { data: {allPrismicPost} } ) => {
+
+/*
+  const currentIndex = allPrismicPost.edges.findIndex((el) => el.node.uid === prismicPost.uid);
+  const prevIndex = currentIndex + 1;
+  const nextIndex = currentIndex - 1;
+  const prevSlug = prevIndex >= allPrismicPost.edges.length ? null : allPrismicPost.edges[prevIndex].node.uid;
+  const nextSlug = nextIndex < 0 ? null : allPrismicPost.edges[nextIndex].node.uid;
+*/
+
   return(
       <div>
         <Header />
@@ -61,4 +69,3 @@ export const pageQuery = graphql`
   }
  }
 `
-
