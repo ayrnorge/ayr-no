@@ -16,24 +16,16 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-87412534-1',
-      },
-    },
-    {
       resolve: `gatsby-plugin-hotjar`,
       options: {
         id: 1321660,
-        sv: 
-            (function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:1321660,hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=')
+        sv: 6
+      },
+    },
+      {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-87412534-1',
       },
     },
     {
