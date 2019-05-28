@@ -29,6 +29,16 @@ padding-bottom: 10px;
 
 
 const Footer = ({ links }) => {
+  links.sort((a ,b) => {
+    return a.position - b.position
+})
+    // function to sort subpages 
+    links.forEach((mainPages) => {
+    mainPages.subpages.sort((a, b) => a.position - b.position )
+})  
+
+
+
     return (
   <Container>
     {links.map(link => (

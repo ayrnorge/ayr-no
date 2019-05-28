@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import Listing from "../components/Listing"
 import IntercomConfigured from '../components/Intercom/index'
-import SEO from "../components/seo"
 import styled from '@emotion/styled'
 import Header from '../components/Header /index'
 import Menu from '../components/Menu/index'
@@ -14,8 +13,8 @@ const PostsContainer = styled.div`
 `
 
 
-const Blog = ( { data: {allPrismicPost} }) => {
-    return(
+const Blog = ( { data: {allPrismicPost} } ) => {
+  return(
       <div>
         <Header />
         <MediaQuery minWidth={650}>

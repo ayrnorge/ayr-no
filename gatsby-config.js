@@ -11,7 +11,7 @@ module.exports = {
     title: `AYR gjør IT enkelt for deg og din bedrift`,
     description: `AYR ser helheten, og hjelper deg med å bruke IT til å bli bedre på din kjernevirksomhet.`,
     author: `Bjerk`,
-    url: `http://localhost:8000/`,
+    url: `www.ayr.no`,
     siteLanguage: 'no'
   },
   plugins: [
