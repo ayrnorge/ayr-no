@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
     {
       allPrismicPost(
         sort: { fields: [data___date], order: DESC }
-        limit: 1000
+        limit: 100
         ){
         edges{
           node{
@@ -69,6 +69,23 @@ exports.createPages = async ({ graphql, actions }) => {
     )
     const postsList = result.data.allPrismicPost.edges
     const postTemplate = require.resolve('./src/templates/post.jsx')
+    // pagination 
+    const blogTemplate = require.resolve('./src/templates/blog.jsx')
+    const postsPerPage = 2
+    const numPages = Math.ceil(postsList.length / postsPerPage)
+
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+        component: blogTemplate,
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+        },
+      })
+    })
 
   postsList.forEach(edge => {
     createPage({
@@ -110,6 +127,3 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 		});
 	}
 };
-exports.onCreateNode = ({ node }) => {
-  console.log(node.internal.type)
-}

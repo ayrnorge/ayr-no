@@ -12,20 +12,14 @@ module.exports = {
     description: `AYR ser helheten, og hjelper deg med å bruke IT til å bli bedre på din kjernevirksomhet.`,
     author: `Bjerk`,
     url: `www.ayr.no`,
-    siteLanguage: 'no'
+    siteLanguage: "no",
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-hotjar`,
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: 1321660,
-        sv: 6
-      },
-    },
-      {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-87412534-1',
+        id: 'GTM-W26XD8T',
+        includeInDevelopment: false,
       },
     },
     {
@@ -59,7 +53,7 @@ module.exports = {
         icon: `src/images/ayr_logo.svg`, // This path is relative to the root of the site.
       },
     },
-    'gatsby-plugin-offline',
+    "gatsby-plugin-offline",
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
