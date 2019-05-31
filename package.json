@@ -41,7 +41,7 @@
     "yarn": "^1.15.2"
   },
   "devDependencies": {
-    "gatsby-plugin-google-tagmanager": "^2.0.13",
+    "gatsby-plugin-google-tagmanager": "^2.0.15",
     "prettier": "^1.17.0"
   },
   "keywords": [
