@@ -39,7 +39,6 @@ const Menu = ({ data, styleName })  => {
         </ul>
         </li>
         )}
-        <Link activeClassName="active" key="blog" to="/blog/" style={{paddingLeft: '0.3rem'}} onClick={closeMenu}>Blogg</Link> 
         </ul> } 
          
         <ButtonLink text={"Ta Kontakt"} url="tel:+4745969999"/>

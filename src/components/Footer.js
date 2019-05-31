@@ -44,9 +44,6 @@ const Footer = ({ links }) => {
       {link.keyword}
       </Nav>
     ))}
-      <Nav key="blog" to="/blog/" style={{marginRight: '2rem'}}>
-      Blogg
-      </Nav>
   </Container>
     )
 }
