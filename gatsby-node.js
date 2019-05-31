@@ -71,7 +71,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const postTemplate = require.resolve('./src/templates/post.jsx')
     // pagination 
     const blogTemplate = require.resolve('./src/templates/blog.jsx')
-    const postsPerPage = 2
+    const postsPerPage = 5
     const numPages = Math.ceil(postsList.length / postsPerPage)
 
     Array.from({ length: numPages }).forEach((_, i) => {
