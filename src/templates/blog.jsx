@@ -14,19 +14,17 @@ min-height: 100px;
 position: relative;
 margin: auto;
 width: 70%;
-margin-bottom: 10%;
 @media screen and (max-width: 768px) {
     margin-bottom: 5%;
 }
 `
 
 const FooterContainer = styled.div`
-position: absolute;
-bottom: 0;
-margin: auto;
 width:70%;
 padding-left: 16%;
-text-align: center;
+position: absolute;
+bottom: 0;
+
 @media screen and (max-width: 768px) {
   text-align center;
   position: relative;
