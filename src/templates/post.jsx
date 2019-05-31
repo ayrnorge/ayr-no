@@ -21,7 +21,6 @@ margin-top: 15rem;
   margin-left: 12rem;
 } 
 `
-
 const NextContainer = styled.div`
 position: fixed;
 margin-left: 74rem;
@@ -30,7 +29,6 @@ margin-top: 15rem;
   margin-left: 67rem;
 } 
 `
-
 const Img = styled.img`
 padding: 1.6rem 0;
 width: 100%;
@@ -39,7 +37,6 @@ height: 423px;
   height: 160px;
 } 
 `
-  
 const Container = styled.div`
 display: flex;
 flex-direction: row;
@@ -47,12 +44,10 @@ flex-direction: row;
   margin: auto;
 }
 ` 
-
 const Icon = styled.img`
 height: 15px; 
 margin: 0 0.5rem;
 `
-
 const Content = styled.div`
 margin: 0 auto;
 max-width: 800px;
@@ -90,12 +85,12 @@ const Post = ({ data: { prismicPost, allPrismicPost } }) => {
       <span>{moment(`${data.date}`).format('DD MMMM YYYY')} - skrevet av {data.author}</span>
       <Img src={data.post_image.url} alt={data.post_image.alt} />
       <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
-      <div style={{ display: 'flex', flexDirection: 'row'}}>
+      <div style={{textAlign: 'left', paddingTop: '20px'}}>Del denne bloggen <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', paddingTop: '10px' }}>
       <FacebookShareButton url={`http://ayr.no/${prismicPost.uid}`}><Icon src={iconFacebook} />
       </FacebookShareButton>
-      <LinkedinShareButton url={prismicPost.uid}><Icon src={iconLinkedIn} />
+      <LinkedinShareButton style={{ouline: 'none' }}url={prismicPost.uid}><Icon src={iconLinkedIn} />
       </LinkedinShareButton>
-      </div>
+      </div></div>
       <IntercomConfigured />
       <HubspotFormConfigured topic={'Chromebook'} />
       </Content>
