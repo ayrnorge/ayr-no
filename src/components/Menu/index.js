@@ -1,13 +1,10 @@
 import React, { useContext }from "react"
 import { StaticQuery, graphql } from "gatsby"
-import styled from '@emotion/styled'
 import { Link } from "gatsby"
 import './menu.css'
 import { MenuContext } from '../../Context/Menu'
 import { DropdownContext } from '../../Context/DropDown'
 import ButtonLink from '../ButtonLink/index'
-
-
 
 
 const Menu = ({ data, styleName })  => {

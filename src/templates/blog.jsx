@@ -19,17 +19,6 @@ margin-bottom: 10%;
     margin-bottom: 5%;
 }
 `
-
-const FooterContainer = styled.div`
-bottom: 0;
-width:70%;
-padding: 1rem 7rem;
-text-align: center;
-@media screen and (max-width: 768px) {
-    width:100%;
-}
-`
-
 const Nav = styled(Link)`
 padding-bottom: 10px;
 `

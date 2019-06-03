@@ -57,8 +57,6 @@ const IndexPage = ({ data: { prismicHomepage } }) => {
   return(
   <Background>
     <Header />
-    <SideDrawer show={isOpen} />
-    {isOpen ? <Backdrop click={closeMenu} /> : null} 
     <HomeContainer>
     <SEO title="Home" keywords={[`Google g suite`, `Chromebook`,`Google Cloud Platform`]} />
     <Carousel content={prismicHomepage.data.slider_content} />
