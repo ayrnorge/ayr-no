@@ -61,7 +61,7 @@ const IndexPage = ({ data: { prismicHomepage } }) => {
     <SEO title="Home" keywords={[`Google g suite`, `Chromebook`,`Google Cloud Platform`]} />
     <Carousel content={prismicHomepage.data.slider_content} />
     </HomeContainer>
-    <MediaQuery minWidth={650}>
+    <MediaQuery minWidth={651}>
         <FooterContainer>
           <Footer />
         </FooterContainer>

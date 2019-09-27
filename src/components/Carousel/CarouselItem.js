@@ -7,7 +7,7 @@ class CarouselItem extends React.Component {
         return (
             <div className="carousel-item">
                 <div dangerouslySetInnerHTML={{ __html: data }}/>
-                <ButtonLink styleName={'carousel-item-button'} text={"READ MORE"} url={uid} />
+                <ButtonLink styleName={'carousel-item-button'} text={"LES MER"} url={uid} />
            </div>
         )
     }
