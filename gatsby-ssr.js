@@ -1,23 +1,14 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
-
-
 import React from "react";
-export function onRenderBody(
-  { setHeadComponents }
-) {
- setHeadComponents([
-  <script src='//cdn.freshmarketer.com/464989/1423120.js'></script>
-  ]);
-}
 
+const onRenderBody = ({ setHeadComponents }) => {
+    return setHeadComponents([
+      <script key="xyz" type="text/javascript" src='//cdn.freshmarketer.com/464989/1423120.js' />,
+    ])
+  }
 
-/* Hotjar
+export default onRenderBody 
 
-const onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
+/* const onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
   if (process.env.NODE_ENV === `production`) {
     const {id, sv, host} = pluginOptions
     return setPostBodyComponents([
@@ -45,4 +36,4 @@ const onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
   return null
 } 
 
-export default onRenderBody */
+export default onRenderBody  */
