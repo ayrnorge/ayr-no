@@ -4,7 +4,18 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-import React from "react"
+
+import React from "react";
+export function onRenderBody(
+  { setHeadComponents }
+) {
+ setHeadComponents([
+  <script src='//cdn.freshmarketer.com/464989/1423120.js'></script>
+  ]);
+}
+
+
+/* Hotjar
 
 const onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
   if (process.env.NODE_ENV === `production`) {
@@ -34,4 +45,4 @@ const onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
   return null
 } 
 
-export default onRenderBody
+export default onRenderBody */
