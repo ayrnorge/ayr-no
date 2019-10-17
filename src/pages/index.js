@@ -11,7 +11,6 @@ import Footer from '../components/Footer'
 import SideDrawer from '../components/SideDrawer/index'
 import Backdrop from '../components/Backdrop/index'
 import MediaQuery from 'react-responsive'
-import IntercomConfigured from '../components/Intercom/index'
 
 
 const Background = styled.div`
@@ -66,7 +65,6 @@ const IndexPage = ({ data: { prismicHomepage } }) => {
           <Footer />
         </FooterContainer>
     </MediaQuery>
-    <IntercomConfigured />
     </Background>
   )
 }

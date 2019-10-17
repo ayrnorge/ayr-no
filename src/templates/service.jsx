@@ -6,7 +6,6 @@ import styled from '@emotion/styled'
 import Menu from '../components/Menu/index'
 import MediaQuery from 'react-responsive';
 import HubspotFormConfigured from '../components/HubspotFormConfigured/index.js'
-import IntercomConfigured from '../components/Intercom/index'
 import { DropdownContext } from '../Context/DropDown'
 
 const Container = styled.div`
@@ -61,7 +60,6 @@ const Service = ({ data: { prismicService } }) => {
       />
        </ImageContainer>
       </MediaQuery>
-      <IntercomConfigured />
       </Container> 
       </>
   )
@@ -91,41 +89,3 @@ query ServiceBySlug($uid: String!) {
     }
   }
 `
-
-
-
-/* 
-previous
-
-const Service = ({ data: { prismicService } }) => {
-  const { data, tags } = prismicService
-  console.log("service", tags)
-  return (
-    <>
-      <Header />
-       <Helmet>{data.title.text}</Helmet> 
-      <Container>
-        <MediaQuery minWidth={650}>
-        <SideMenu tags={tags}/>
-        </MediaQuery>
-      <Content>
-      <h1>{data.title.text}</h1>
-      <div dangerouslySetInnerHTML={{ __html: data.content.html }} />
-        <HubspotFormConfigured topic={data.keyword} />
-      </Content>
-        <MediaQuery minWidth={650}>
-      <ImageContainer>
-      <img
-      src={data.image.url}
-      alt={data.image.alt}
-      />
-       </ImageContainer>
-      </MediaQuery>
-      <IntercomConfigured />
-      </Container>
-      </>
-  )
-}
-
-
-*/

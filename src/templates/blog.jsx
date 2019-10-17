@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Listing from "../components/Listing"
-import IntercomConfigured from '../components/Intercom/index'
 import styled from '@emotion/styled'
 import Header from '../components/Header /index'
 import Menu from '../components/Menu/index'
@@ -103,7 +102,6 @@ const Blog = ( { data: {allPrismicPost}, pageContext }) => {
     </MediaQuery>
           </Ul>
           </FooterContainer>
-      <IntercomConfigured />
       </div>
     )
 }

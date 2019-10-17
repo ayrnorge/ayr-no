@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import PageLayout from '../components/PageLayout'
-import IntercomConfigured from '../components/Intercom/index'
 import moment from 'moment'
 
 const Personvern = ({ data: {prismicPrivacyStatement} }) => {
@@ -12,7 +11,6 @@ const Personvern = ({ data: {prismicPrivacyStatement} }) => {
     <div
       dangerouslySetInnerHTML={{ __html: prismicPrivacyStatement.data.content.html }}
     />
-    <IntercomConfigured />
     </PageLayout>
     )
 }
