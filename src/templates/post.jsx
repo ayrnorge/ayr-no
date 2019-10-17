@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import IntercomConfigured from '../components/Intercom/index'
 import styled from '@emotion/styled'
 import moment from 'moment'
 import HubspotFormConfigured from '../components/HubspotFormConfigured/index'
@@ -91,7 +90,6 @@ const Post = ({ data: { prismicPost, allPrismicPost } }) => {
       <LinkedinShareButton style={{ouline: 'none' }}url={prismicPost.uid}><Icon src={iconLinkedIn} />
       </LinkedinShareButton>
       </div></div>
-      <IntercomConfigured />
       <HubspotFormConfigured topic={'Chromebook'} />
       </Content>
       </Container>
