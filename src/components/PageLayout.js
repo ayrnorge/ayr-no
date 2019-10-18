@@ -2,26 +2,21 @@ import React from "react"
 import PropTypes from "prop-types"
 import Header from "./Header /index"
 import "./layout.css"
-import styled from '@emotion/styled'
-
+import styled from "@emotion/styled"
 
 const Container = styled.div`
-display: flex;
-flex-direction: row;
-@media screen and (max-width: 650px) {
-  margin: 0 1rem 2rem 1rem;
-}
-` 
-
-
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: 650px) {
+    margin: 0 1rem 2rem 1rem;
+  }
+`
 
 const PageLayout = ({ children }) => (
-          <div>
-            <Header />
-          <Container>
-          {children}
-          </Container>
-          </div>
+  <div>
+    <Header />
+    <Container>{children}</Container>
+  </div>
 )
 
 export default PageLayout
@@ -29,14 +24,3 @@ export default PageLayout
 PageLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
-
-
-
-
-
-
-
-
-
-
-

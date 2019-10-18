@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import styled from '@emotion/styled'
-import ListItem from './ListItem'
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import styled from "@emotion/styled"
+import ListItem from "./ListItem"
 
 const List = styled.div`
   display: flex;
@@ -10,9 +10,8 @@ const List = styled.div`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     justify-content: center;
-  } 
+  }
 `
-
 
 export default class Listing extends Component {
   render() {

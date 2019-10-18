@@ -1,35 +1,40 @@
 .google-cloud-badge {
   height: 58px;
-  width: 120px; }
+  width: 120px;
+}
 
 .header-main {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 2500px;
-    order: 0;
-    padding: 60px; }
-    @media screen and (max-width: 768px) {
-      .header-main {
-        padding: 1rem 1rem 3rem; } }
-  
-  .header-child-right {
-    display: flex;
-    flex-direction: row;
-    margin-left: auto; }
-  
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 2500px;
+  order: 0;
+  padding: 60px;
+}
+@media screen and (max-width: 768px) {
+  .header-main {
+    padding: 1rem 1rem 3rem;
+  }
+}
+
+.header-child-right {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+}
+
+.ayr-logo {
+  position: fixed;
+  flex: none;
+  margin-right: 80px;
+  max-height: 33px;
+  width: 60px;
+}
+
+@media screen and (max-width: 768px) {
   .ayr-logo {
-    position: fixed;
-    flex: none;
-    margin-right: 80px;
-    max-height: 33px;
-    width: 60px; }
-    
-    @media screen and (max-width: 768px) {
-      .ayr-logo {
-        margin-right: 2rem; 
-        position: static;} }
-  
- 
-  
+    margin-right: 2rem;
+    position: static;
+  }
+}

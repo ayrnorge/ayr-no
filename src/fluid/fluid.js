@@ -1,4 +1,4 @@
-export const unit = value => value.replace(/(^\d+)(.+$)/i, '$1');
+export const unit = value => value.replace(/(^\d+)(.+$)/i, "$1")
 
 /*
 fluid smooth (font size, margin, height, width etc.) implementation in css-in-js
@@ -10,15 +10,16 @@ fluid smooth (font size, margin, height, width etc.) implementation in css-in-js
     @return {*|*} 
 */
 
-
 export default (property, minVm, maxVm, minSize, maxSize) => `
   ${property}: ${minSize};
   
   @media screen and (min-width: ${minVm}) {
-    ${property}: calc( ${minSize} + (${unit(maxSize)} - ${unit(minSize)}) * (100vw - ${minVm}) / (${unit(maxVm)} - ${unit(minVm)}) );
+    ${property}: calc( ${minSize} + (${unit(maxSize)} - ${unit(
+  minSize
+)}) * (100vw - ${minVm}) / (${unit(maxVm)} - ${unit(minVm)}) );
   }
   
   @media screen and (min-width: ${maxVm}) {
     ${property}: ${maxSize};
   }
-`;
+`
