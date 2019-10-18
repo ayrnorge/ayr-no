@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "cz-conventional-changelog": "2.1.0",
-    "gatsby-plugin-google-tagmanager": "^2.0.15",
+    "gatsby-plugin-google-tagmanager": "^2.1.15",
     "prettier": "^1.17.0"
   },
   "keywords": [

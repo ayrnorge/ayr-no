@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { graphql } from "gatsby"
-import Header from "../components/Header /index"
+import Header from "../components/Header/index"
 import Helmet from "react-helmet"
 import styled from "@emotion/styled"
 import Menu from "../components/Menu/index"

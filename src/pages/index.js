@@ -1,15 +1,15 @@
 import React, { useContext } from "react"
 import { graphql } from "gatsby"
-import { MenuContext } from "../Context/Menu"
-import Header from "../components/Header /index"
+// import { MenuContext } from "../Context/Menu"
+import Header from "../components/Header/index"
 import SEO from "../components/seo"
 import Carousel from "../components/Carousel/index"
 import styled from "@emotion/styled"
 import BigImage from "../images/bg-circle-big.svg"
 import SmallImage from "../images/bg-circle-small.svg"
 import Footer from "../components/Footer"
-import SideDrawer from "../components/SideDrawer/index"
-import Backdrop from "../components/Backdrop/index"
+// import SideDrawer from "../components/SideDrawer/index"
+// import Backdrop from "../components/Backdrop/index"
 import MediaQuery from "react-responsive"
 
 const Background = styled.div`
@@ -49,7 +49,7 @@ const FooterContainer = styled.div`
 `
 
 const IndexPage = ({ data: { prismicHomepage } }) => {
-  const { isOpen, closeMenu } = useContext(MenuContext) || { isOpen: false }
+  // const { isOpen, closeMenu } = useContext(MenuContext) || { isOpen: false }
 
   return (
     <Background>
