@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro');
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro");
 
 * {
   -moz-osx-font-smoothing: grayscale;
@@ -6,17 +6,25 @@
 }
 
 html {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   height: 100%;
   font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display';
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display";
 }
 
- h3, h4, h5, h6 {
-  font-family: 'Playfair Display';
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display";
   margin: 0;
 }
 
@@ -27,24 +35,25 @@ h1 {
 }
 
 @media (max-width: 768px) {
- h1{
-  line-height: 2.2rem;} 
+  h1 {
+    line-height: 2.2rem;
+  }
 }
 
- h2 {
+h2 {
   margin-top: 2rem;
   margin-bottom: 0;
   font-size: 1.6rem;
   font-weight: 100;
-  font-family: 'Source Sans Pro'
+  font-family: "Source Sans Pro";
 }
- 
+
 body {
   margin: 0;
 }
 
 p {
-  font-family: 'Source Sans Pro';
+  font-family: "Source Sans Pro";
   line-height: 1.5rem;
   word-wrap: break-word;
   color: #76767a;
@@ -70,13 +79,13 @@ a {
 }
 
 ul.sub-menu {
-  font-size: 16px; 
-  }
-
- a:hover {
-   color: #0073e9;
+  font-size: 16px;
 }
- 
+
+a:hover {
+  color: #0073e9;
+}
+
 a .nav-link:hover {
   background-image: url("/src/images/active-indicator.svg");
   background-position: bottom;

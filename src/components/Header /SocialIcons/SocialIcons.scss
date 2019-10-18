@@ -1,15 +1,14 @@
 .icon {
-    img {
-      height: 15px;
+  img {
+    height: 15px;
+  }
+}
+
+.social-icons {
+  .icon {
+    margin-left: 30px;
+    @media screen and (max-width: 768px) {
+      margin-left: 0.5rem;
     }
   }
-  
-  .social-icons {
-    .icon {
-      margin-left: 30px;
-      @media screen and (max-width: 768px) {
-        margin-left: .5rem;
-      }
-    }
-  }
-  
+}

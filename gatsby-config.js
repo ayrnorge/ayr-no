@@ -2,7 +2,7 @@
   path: `.env.${process.env.NODE_ENV}`,
 }) */
 
-require('dotenv').config({
+require("dotenv").config({
   path: `.env`,
 })
 
@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: 'GTM-W26XD8T',
+        id: "GTM-W26XD8T",
         includeInDevelopment: false,
       },
     },

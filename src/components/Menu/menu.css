@@ -9,11 +9,10 @@
 .menu.mobile {
   margin: auto;
 }
-.menu.mobile a{
+.menu.mobile a {
   font-size: 26px;
 }
 
 .menu.mobile li {
   padding-top: 1rem;
 }
-

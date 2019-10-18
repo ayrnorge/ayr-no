@@ -1,4 +1,4 @@
-import fluid from './fluid';
+import fluid from "./fluid"
 
 /*
  * fluid font size implementation in css-in-js
@@ -10,4 +10,5 @@ import fluid from './fluid';
  * @return {*|*}
  */
 
-export default (minVm, maxVm, minSize, maxSize) => fluid('font-size', minVm, maxVm, minSize, maxSize);
+export default (minVm, maxVm, minSize, maxSize) =>
+  fluid("font-size", minVm, maxVm, minSize, maxSize)

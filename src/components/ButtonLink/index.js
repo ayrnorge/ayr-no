@@ -1,8 +1,10 @@
-import React from 'react';
-import './ButtonLink.css';
+import React from "react"
+import "./ButtonLink.css"
 
 export default function ButtonLink({ styleName, text, url }) {
-    return (
-        <a className={`button-link ${styleName || ''}`} href={url}>{text}</a>
-    );
+  return (
+    <a className={`button-link ${styleName || ""}`} href={url}>
+      {text}
+    </a>
+  )
 }
