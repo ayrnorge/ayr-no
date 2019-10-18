@@ -10,7 +10,7 @@ import { FacebookShareButton, LinkedinShareButton } from "react-share"
 import iconFacebook from "../images/icon_facebook.svg"
 import iconLinkedIn from "../images/icon_linkedin.svg"
 import Menu from "../components/Menu/index"
-import Header from "../components/Header /index"
+import Header from "../components/Header/index"
 
 const PrevContainer = styled.div`
   position: fixed;

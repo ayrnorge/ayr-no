@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Header from "./Header /index"
+import Header from "./Header/index"
 import "./layout.css"
 import styled from "@emotion/styled"
 

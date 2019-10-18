@@ -21,7 +21,7 @@ const Content = styled.div`
 `
 
 const aboutUs = ({ data: { prismicWhoAreWe } }) => {
-  const { isOpen, closeMenu } = useContext(MenuContext) || { isOpen: false }
+  // const { isOpen, closeMenu } = useContext(MenuContext) || { isOpen: false }
   return (
     <PageLayout>
       <MediaQuery minWidth={650}>
@@ -39,10 +39,10 @@ const aboutUs = ({ data: { prismicWhoAreWe } }) => {
         />
         <HubspotFormConfigured topic={prismicWhoAreWe.data.title.text} />
       </Content>
-      <MediaQuery minWidth={650}>
+      {/* <MediaQuery minWidth={650}>
         <SideDrawer show={isOpen} />
         {isOpen ? <Backdrop click={closeMenu} /> : null}
-      </MediaQuery>
+      </MediaQuery> */}
     </PageLayout>
   )
 }
